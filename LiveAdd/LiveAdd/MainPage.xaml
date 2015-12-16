@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="LiveAdd.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiveAdd"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFFFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="panelTitle"
+              Grid.Row="0"
+              Background="#FF4D6082">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="LiveAdd"
+                       Grid.Column="1"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="panelContent"
+              Grid.Row="1"
+              Background="#FF293A56">
+
+        </Grid>
+        <Grid x:Name="panelStatus"
+               Grid.Row="2"
+              Background="#FF4D6082">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Ready"
+                       Grid.Column="0"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Left"/>
+            <TextBlock Text="Found: "
+                       Grid.Column="2"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Right"/>
+            <TextBlock Text="5"
+                       Grid.Column="3"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Left"/>
+        </Grid>
+    </Grid>
+</Page>
