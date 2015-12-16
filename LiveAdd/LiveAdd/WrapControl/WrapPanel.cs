@@ -2,6 +2,7 @@
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
+// URL:https://comentsys.wordpress.com/2015/05/27/windows-10-universal-windows-platform-wrap-control/
 
 namespace LiveAdd.WrapControl
 {
