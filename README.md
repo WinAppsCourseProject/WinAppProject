@@ -1,3 +1,5 @@
-# Windows Application
+# LiveAdd
 
-### 1. Make users and their registration in Parse.
+### 1. Project to create an App for Live Announcement 
+
+ 
