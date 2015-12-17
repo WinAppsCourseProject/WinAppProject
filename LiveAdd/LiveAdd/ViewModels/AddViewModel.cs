@@ -11,16 +11,17 @@ namespace LiveAdd.ViewModels
 
         public decimal Price { get; set; }
 
+        public AddViewModel()
+            : this(string.Empty, string.Empty, 0)
+        {
+        }
+
         public AddViewModel(AddViewModel newAdvertisement)
             : this(newAdvertisement.Name, newAdvertisement.ImgUrl, newAdvertisement.Price)
         {
 
         }
 
-        public AddViewModel()
-            : this(string.Empty, string.Empty, 0)
-        {
-        }
         public AddViewModel(string name, string imgUrl, decimal price)
         {
             this.Name = name;
