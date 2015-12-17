@@ -26,7 +26,7 @@
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-            <TextBlock Text="LiveAdd"
+            <TextBlock Text="{Binding Title}"
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>

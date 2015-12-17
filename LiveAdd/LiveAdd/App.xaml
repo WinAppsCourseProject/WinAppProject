@@ -28,8 +28,10 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight"  Value="Bold"/>
         </Style>
-        <Style x:Key="ButtonFontColor" TargetType="Button">
+        <Style x:Key="ButtonFontColorAndSize" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Width" Value="140" />
         </Style>
         <Style x:Key="ContentColor" TargetType="Grid">
             <Setter Property="Background" Value="#FF293A56"/>

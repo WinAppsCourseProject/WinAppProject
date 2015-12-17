@@ -42,9 +42,9 @@
                 <Grid x:Name="ContentRoot" Margin="28,9,10,0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Username" 
@@ -59,7 +59,7 @@
                        Grid.Row="3"/>
                     <Button Content="Login"  
                        Grid.Row="4"
-                       Style="{StaticResource ButtonFontColor}"
+                       Style="{StaticResource ButtonFontColorAndSize}"
                     />
                 </Grid>
             </Grid>
