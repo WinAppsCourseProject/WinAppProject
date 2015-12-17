@@ -2,6 +2,10 @@
 {
     public class MainPageViewModel : ViewModelBase, IPageViewModel
     {
+        public MainPageViewModel(IContentViewModel contentViewModel)
+        {
+            this.ContentViewModel = contentViewModel;
+        }
         public string Title
         {
             get

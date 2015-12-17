@@ -5,6 +5,7 @@ namespace LiveAdd.ViewModels
     public class AddViewModel
     {
         private IEnumerable<AddViewModel> newAdvertisement;
+        private decimal price;
 
         public string Name { get; set; }
         public string ImgUrl { get; set; }
@@ -19,7 +20,6 @@ namespace LiveAdd.ViewModels
         public AddViewModel(AddViewModel newAdvertisement)
             : this(newAdvertisement.Name, newAdvertisement.ImgUrl, newAdvertisement.Price)
         {
-
         }
 
         public AddViewModel(string name, string imgUrl, decimal price)

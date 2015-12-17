@@ -7,7 +7,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <DataTemplate x:Key="AdvertisementItemTemplate">
+            <Grid Margin="20, 20, 0, 0"
+                      VerticalAlignment="Top"
+                      Width="150"
+                      Height="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.66*"/>
+                    <RowDefinition Height="0.17*"/>
+                    <RowDefinition Height="0.17*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding ImgUrl}"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="1" 
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Text="{Binding Name}"
+                           Style="{StaticResource Аdvertisement}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Price: "
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Price}"
+                           Style="{StaticResource Аdv_Content}"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -39,84 +74,14 @@
         <Grid x:Name="panelContent"
               Grid.Row="1"
               Background="#FF293A56">
-            <wc:WrapPanel>
-                <Grid Margin="20, 20, 0, 0"
-                      VerticalAlignment="Top"
-                      Width="150"
-                      Height="150">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.66*"/>
-                        <RowDefinition Height="0.17*"/>
-                        <RowDefinition Height="0.17*"/>
-                    </Grid.RowDefinitions>
-                    <Image Source="https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg"
-                           Grid.Row="0"
-                           VerticalAlignment="Top"/>
-                    <TextBlock Grid.Row="1" 
-                               Text="Обява"
-                               Style="{StaticResource Аdvertisement}"/>
-                    <TextBlock Grid.Row="2"
-                               Text="Цена: 200"
-                               Style="{StaticResource Аdv_Content}"/>
-                </Grid>
-                <Grid Margin="20, 20, 0, 0"
-                      VerticalAlignment="Top"
-                      Width="150"
-                      Height="150">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.66*"/>
-                        <RowDefinition Height="0.17*"/>
-                        <RowDefinition Height="0.17*"/>
-                    </Grid.RowDefinitions>
-                    <Image Source="https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg"
-                           Grid.Row="0"
-                           VerticalAlignment="Top"/>
-                    <TextBlock Grid.Row="1" 
-                               Text="Обява"
-                               Style="{StaticResource Аdvertisement}"/>
-                    <TextBlock Grid.Row="2"
-                               Text="Цена: 200"
-                               Style="{StaticResource Аdv_Content}"/>
-                </Grid>
-                <Grid Margin="20, 20, 0, 0"
-                      VerticalAlignment="Top"
-                      Width="150"
-                      Height="150">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.66*"/>
-                        <RowDefinition Height="0.17*"/>
-                        <RowDefinition Height="0.17*"/>
-                    </Grid.RowDefinitions>
-                    <Image Source="https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg"
-                           Grid.Row="0"
-                           VerticalAlignment="Top"/>
-                    <TextBlock Grid.Row="1" 
-                               Text="Обява"
-                               Style="{StaticResource Аdvertisement}"/>
-                    <TextBlock Grid.Row="2"
-                               Text="Цена: 200"
-                               Style="{StaticResource Аdv_Content}"/>
-                </Grid>
-                <Grid Margin="20, 20, 0, 0"
-                      VerticalAlignment="Top"
-                      Width="150"
-                      Height="150">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.66*"/>
-                        <RowDefinition Height="0.17*"/>
-                        <RowDefinition Height="0.17*"/>
-                    </Grid.RowDefinitions>
-                    <Image Source="https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg"
-                           Grid.Row="0"
-                           VerticalAlignment="Top"/>
-                    <TextBlock Grid.Row="1" 
-                               Text="Обява"
-                               Style="{StaticResource Аdvertisement}"/>
-                    <TextBlock Grid.Row="2"
-                               Text="Цена: 200"
-                               Style="{StaticResource Аdv_Content}"/>
-                </Grid>
-            </wc:WrapPanel>
+            <ItemsControl ItemsSource="{Binding ContentViewModel.Advertisements}"
+                          ItemTemplate="{StaticResource AdvertisementItemTemplate}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate >
+                        <wc:WrapPanel></wc:WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"

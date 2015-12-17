@@ -7,7 +7,7 @@
     using LiveAdd.Helpers;
 
 
-    public class AddContentViewModel : ViewModelBase
+    public class AddContentViewModel : ViewModelBase, IContentViewModel
     {
         public ObservableCollection<AddViewModel> advertisements;
         private ICommand publishCommand;
