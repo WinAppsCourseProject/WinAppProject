@@ -40,6 +40,10 @@ namespace LiveAdd
             }
         }
 
+        private void btnShowHidePane_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
         private void OnLogoutButtonClicked(object sender, RoutedEventArgs e)
         {
             this.ViewModel.LogOut();

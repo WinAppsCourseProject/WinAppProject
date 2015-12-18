@@ -61,6 +61,14 @@
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
+            <Button x:Name="btMenuPane" 
+                            Content="&#x2261;"
+                            FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50"
+                            Background="Transparent"
+                            Foreground="White"
+                            Click="btnShowHidePane_Click"/>
             <TextBlock Text="{Binding Title}"
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
@@ -82,6 +90,66 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
+            <SplitView x:Name="MySplitView" 
+                   DisplayMode="CompactOverlay" 
+                   IsPaneOpen="False"
+                   CompactPaneLength="00"
+                   OpenPaneLength="150"
+                   Margin="0,0,0,0">
+                <SplitView.Pane>
+                    <StackPanel Background="#FF9BA7B7">
+                        <Button x:Name="btnShowHidePane" 
+                            Content="&#xE00F;"
+                            FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50"
+                            Background="Transparent"
+                            Foreground="White"
+                            Click="btnShowHidePane_Click"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Message_Menu" 
+                            Content="&#xE715;"
+                            FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50"
+                            Background="Transparent"
+                            Foreground="White"/>
+                            <TextBlock Text="Message"
+                                   FontSize="18"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Favorite_Menu" 
+                            Content="&#xE1CE;"
+                            FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50"
+                            Background="Transparent"
+                            Foreground="White"/>
+                            <TextBlock Text="Favorite"
+                                   FontSize="18"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Settings_Menu" 
+                            Content="&#xE713;"
+                            FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50"
+                            Background="Transparent"
+                            Foreground="White"/>
+                            <TextBlock Text="Settings"
+                                   FontSize="18"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </SplitView.Pane>
+            </SplitView>
+
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"
