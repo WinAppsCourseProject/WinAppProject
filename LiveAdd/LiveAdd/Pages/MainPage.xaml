@@ -87,15 +87,20 @@
                Grid.Row="2"
               Background="#FF4D6082">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="80" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="150" />
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
             <TextBlock Text="Ready"
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Left"/>
+            <Button Content="Log out"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource ButtonFontColorAndSize}"
+                    Click="OnLogoutButtonClicked"/>
             <TextBlock Text="Found: "
                        Grid.Column="2"
                        Style="{StaticResource TytleStyle}"

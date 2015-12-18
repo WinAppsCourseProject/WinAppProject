@@ -7,6 +7,9 @@
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Navigation;
 
+    using Pages;
+    using Parse;
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -23,6 +26,8 @@
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            this.SetupParse();
         }
 
         /// <summary>
@@ -62,10 +67,17 @@
 
             if (rootFrame.Content == null)
             {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                Type pageType;
+                if (ParseUser.CurrentUser != null)
+                {
+                    pageType = typeof(MainPage);
+                }
+                else
+                {
+                    pageType = typeof(LoginPage);
+                }
+
+                rootFrame.Navigate(pageType, e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
@@ -93,6 +105,11 @@
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void SetupParse()
+        {
+            ParseClient.Initialize("JWp5vR5XqPNJFX87vGXWObiUaBxSzung3DLP3Lhp", "9zQiTq5p4SSa7QUdhs8g8OD9696Bdt5u8lVR8mlk");
         }
     }
 }

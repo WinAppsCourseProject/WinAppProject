@@ -5,11 +5,11 @@ namespace LiveAdd
     using System.Collections.Generic;
     using LiveAdd.ViewModels;
     using Windows.UI.Xaml.Controls;
-
-
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    using Windows.UI.Xaml;
+    using Pages;
+    using Parse;    /// <summary>
+                    /// An empty page that can be used on its own or navigated to within a Frame.
+                    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -25,6 +25,12 @@ namespace LiveAdd
 
                 };
             this.DataContext = new MainPageViewModel(contentViewModel);
+        }
+
+        private void OnLogoutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ParseUser.LogOut();
+            this.Frame.Navigate(typeof(LoginPage));
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="LiveAdd.Pages.LoginPage"
+    x:Class="LiveAdd.Pages.SignUpPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LiveAdd"
+    xmlns:local="using:LiveAdd.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -46,6 +46,10 @@
                         <RowDefinition/>
                         <RowDefinition Height="60"/>
                         <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -56,7 +60,7 @@
                                Grid.Row="0"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"/>
-                    <TextBox  Text="{Binding Username, Mode=TwoWay}"
+                    <TextBox  Text="{Binding User.Username, Mode=TwoWay}"
                               Grid.Row="1"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"/>
@@ -65,21 +69,40 @@
                                Grid.Row="2"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"/>
-                    <PasswordBox Password="{Binding Password, Mode=TwoWay}"
+                    <PasswordBox Password="{Binding User.Password, Mode=TwoWay}"
                                  Grid.Row="3"
                                  Grid.Column="0"
                                  Grid.ColumnSpan="2"/>
-                    <Button Content="Login"  
-                            Grid.Row="4"
+                    <TextBlock Text="Email" 
+                               Style="{StaticResource LabelTextBlockStyle}" 
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBox   Text="{Binding User.Email, Mode=TwoWay}"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Telephone" 
+                               Style="{StaticResource LabelTextBlockStyle}" 
+                               Grid.Row="6"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBox   Text="{Binding User.Telephone, Mode=TwoWay}"
+                               Grid.Row="7"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    
+                    <Button Content="Sign Up"  
+                            Grid.Row="8"
                             Style="{StaticResource ButtonFontColorAndSize}"
                             Grid.Column="0"
-                            Click="OnLoginButtonClicked"
+                            Click="OnSignUpButtonClick"
                     />
-                    <Button Content="Sign Up"  
-                            Grid.Row="4"
+                    <Button Content="Cancel"  
+                            Grid.Row="8"
                             Style="{StaticResource ButtonFontColorAndSize}"
                             Grid.Column="1"
-                            Click="OnSignUpButtonClicked"
+                            Click="OnCancelButtonClicked"
                     />
                 </Grid>
             </Grid>
@@ -90,4 +113,3 @@
         </Grid>
     </Grid>
 </Page>
-
