@@ -59,5 +59,12 @@
             get { return GetProperty<ParseFile>(); }
             set { SetProperty<ParseFile>(value); }
         }
+
+        [ParseFieldName("location")]
+        public ParseGeoPoint Location
+        {
+            get { return GetProperty<ParseGeoPoint>(); }
+            set { SetProperty<ParseGeoPoint>(value); }
+        }
     }
 }
