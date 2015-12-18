@@ -7,9 +7,10 @@ namespace LiveAdd
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml;
     using Pages;
-    using Parse;    /// <summary>
-                    /// An empty page that can be used on its own or navigated to within a Frame.
-                    /// </summary>
+
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -24,12 +25,24 @@ namespace LiveAdd
                     new AddViewModel("Mazda", "https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg", 1000)
 
                 };
-            this.DataContext = new MainPageViewModel(contentViewModel);
+            this.ViewModel = new MainPageViewModel(contentViewModel);
+        }
+
+        public MainPageViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as MainPageViewModel;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
         }
 
         private void OnLogoutButtonClicked(object sender, RoutedEventArgs e)
         {
-            ParseUser.LogOut();
+            this.ViewModel.LogOut();
             this.Frame.Navigate(typeof(LoginPage));
         }
     }
