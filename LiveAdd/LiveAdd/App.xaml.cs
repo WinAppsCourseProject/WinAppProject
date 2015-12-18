@@ -9,7 +9,7 @@
 
     using Pages;
     using Parse;
-
+    using Models;
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -109,6 +109,8 @@
 
         private void SetupParse()
         {
+            ParseObject.RegisterSubclass<AddModel>();
+
             ParseClient.Initialize("JWp5vR5XqPNJFX87vGXWObiUaBxSzung3DLP3Lhp", "9zQiTq5p4SSa7QUdhs8g8OD9696Bdt5u8lVR8mlk");
         }
     }
