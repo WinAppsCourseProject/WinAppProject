@@ -16,7 +16,16 @@
 
         public string Name { get; set; }
 
-        public string ImgUrl { get; set; }
+        public string ImgUrl
+        {
+            // TODO this will change soon :)
+            get { return "http://cdn.playbuzz.com/cdn/7820ec56-cd7d-487c-87ba-30ca87219dc4/26084bf6-4235-4f8f-9c2f-b7294ea62c15.jpg"; }
+            set
+            {
+                this.ImgUrl = value;
+                this.RaisePropertyChanged("ImgUrl");
+            }
+        }
 
         public string Description { get; set; }
 
