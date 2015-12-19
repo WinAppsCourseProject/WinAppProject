@@ -9,6 +9,8 @@ namespace LiveAdd.Views
     public sealed partial class MenuPanelView : UserControl
     {
         public event EventHandler LogOut;
+
+        public event EventHandler CreateNewAdv;
         public MenuPanelView()
         {
             this.InitializeComponent();
@@ -19,6 +21,14 @@ namespace LiveAdd.Views
             if (this.LogOut != null)
             {
                 this.LogOut(this, null);
+            }
+        }
+
+        private void CreateNewAddv_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.CreateNewAdv != null)
+            {
+                this.CreateNewAdv(this, null);
             }
         }
     }
