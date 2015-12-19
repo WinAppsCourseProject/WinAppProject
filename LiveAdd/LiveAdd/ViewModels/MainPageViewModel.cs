@@ -14,8 +14,8 @@
 
     public class MainPageViewModel : ViewModelBase
     {
-        // Gives us radius of 50 km
-        private const int MaximumDistanceInRadians = 50/6371;
+        private const int EarthRadius = 6371;
+        private const int MaximumDistanceInKilometers = 50;
 
         private static Geolocator geolocator = new Geolocator();
         private double latitude;
@@ -76,15 +76,24 @@
                 this.longitude = geoposition.Coordinate.Point.Position.Longitude;
             }
 
-            var parseGeoPoint = new ParseGeoPoint(latitude, longitude);
-            var parseGeoDistance = new ParseGeoDistance(MaximumDistanceInRadians);
+            var ads = await new ParseQuery<AddModel>().FindAsync();
 
-            var ads = await new ParseQuery<AddModel>()
-                .Where(a => a.IsActive == true)
-                .WhereWithinDistance("location", parseGeoPoint, parseGeoDistance)
-                .FindAsync();
+            this.Advertisements = ads.AsQueryable()
+                .Where(a => this.CheckAvailableAds(a))
+                .Select(AddViewModel.FromModel);
+        }
 
-            this.Advertisements = ads.AsQueryable().Select(AddViewModel.FromModel);
+        private bool CheckAvailableAds(AddModel model)
+        {
+            var parseLatitude = model.Location.Latitude;
+            var parseLongitude = model.Location.Longitude;
+
+            var dlat = (latitude - parseLatitude) / 180 * Math.PI;
+            var dlon = (longitude - parseLongitude) / 180 * Math.PI;
+            var x = (dlon) * Math.Cos((latitude + parseLatitude) / 2 / 180 * Math.PI);
+            var d = Math.Sqrt(x * x + dlat * dlat) * EarthRadius;
+
+            return model.IsActive == 1 && d <= MaximumDistanceInKilometers;
         }
     }
 }

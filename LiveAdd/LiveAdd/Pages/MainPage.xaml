@@ -83,7 +83,7 @@
         <Grid x:Name="panelContent"
               Grid.Row="1"
               Style="{StaticResource BackgroudContentColor}">
-            <ItemsControl ItemsSource="{Binding ContentViewModel.Advertisements}"
+            <ItemsControl ItemsSource="{Binding Advertisements}"
                           ItemTemplate="{StaticResource AdvertisementItemTemplate}"
                           >
                 <ItemsControl.ItemsPanel>

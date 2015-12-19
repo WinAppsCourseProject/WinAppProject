@@ -17,7 +17,7 @@
                     Price = model.Price,
                     Creator = model.Creator,
                     Worker = model.Worker,
-                    ImgUrl = model.Image.Url.ToString(),
+                    //ImgUrl = model.Image.Url.ToString(),
                     Address = "Somewhere" // This to be done using the google reverse geolocation api in some static service class
                 };
             }
@@ -29,7 +29,7 @@
 
         public string ImgUrl { get; set; }
 
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         public string Address { get; set; }
 

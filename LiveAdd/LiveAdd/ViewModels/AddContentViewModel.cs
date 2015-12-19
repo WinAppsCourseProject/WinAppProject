@@ -11,7 +11,7 @@
         static Geolocator geolocator = new Geolocator();
 
         private ICommand publishCommand;
-        private decimal price;
+        private double price;
         private string imgUrl;
 
         public string ServerErrorMessage { get; set; }
@@ -31,7 +31,7 @@
 
         public string Description { get; set; }
 
-        public decimal Price
+        public double Price
         {
             get { return this.price; }
             set
@@ -77,6 +77,7 @@
                     Creator = ParseUser.CurrentUser,
                     Name = this.Name,
                     Price = this.Price,
+                    IsActive = 1,
                     Description = this.Description,
                     Location = new ParseGeoPoint(latitude, longitude)
                 };
