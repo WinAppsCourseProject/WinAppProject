@@ -74,10 +74,10 @@
                 Grid.Column="2"
                 Background="#FF4D6082"
                 Content="&#xE71E;">
-                    <AppBarButton Label="Menu Item 1"/>
-                    <AppBarButton Label="Menu Item 2"/>
-                    <AppBarButton Label="Menu Item 3"/>
-                </CommandBar>
+                <AppBarButton Label="Menu Item 1"/>
+                <AppBarButton Label="Menu Item 2"/>
+                <AppBarButton Label="Menu Item 3"/>
+            </CommandBar>
 
         </Grid>
         <Grid x:Name="panelContent"
@@ -99,45 +99,78 @@
                    OpenPaneLength="150">
                 <SplitView.Pane>
                     <StackPanel Background="#FF9BA7B7">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Message_Menu" 
-                                    Content="&#xE715;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Message"
-                                   FontSize="18"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Favorite_Menu" 
-                                    Content="&#xE1CE;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Favorite"
+                        <Button x:Name="Search"
+                                Width="150"
+                                Height="50"
+                                Background="Transparent"
+                                Margin="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="&#xE71E;"
+                                        FontFamily="Segoe MDL2 Assets"
                                         FontSize="18"
                                         Foreground="White"
-                                        VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Settings_Menu" 
-                                    Content="&#xE713;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Settings"
-                                   FontSize="18"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"/>
-                        </StackPanel>
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="30"/>
+                                <TextBlock Text="Search"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="100"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="CreateAddv"
+                                Width="150"
+                                Height="50"
+                                Background="Transparent"
+                                Margin="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="&#xE710;"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="30"/>
+                                <TextBlock Text="Create New"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="100"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="ViewMyAddv"
+                                Width="150"
+                                Height="50"
+                                Background="Transparent"
+                                Margin="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="&#xE890;"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="30"/>
+                                <TextBlock Text="My Ad's"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Width="100"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="LogoutMenu" 
+                                Content="Logout"
+                                FontSize="18"
+                                Width="150"
+                                Height="40"
+                                Background="Transparent"
+                                Foreground="White"
+                                Click="OnLogoutButtonClicked"
+                                />
                     </StackPanel>
                 </SplitView.Pane>
             </SplitView>

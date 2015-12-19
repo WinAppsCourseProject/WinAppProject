@@ -1,16 +1,14 @@
 ﻿namespace LiveAdd.ViewModels
 {
-    using Parse;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
-    using Windows.Devices.Geolocation;
-
     using Extensions;
-    using System.Threading.Tasks;
-    using Models;
     using Helpers;
+    using Models;
+    using Parse;
+    using Windows.Devices.Geolocation;
 
     public class MainPageViewModel : ViewModelBase
     {
@@ -23,7 +21,7 @@
 
         public MainPageViewModel()
         {
-            this.LoadAddsAsync();
+            //this.LoadAddsAsync();
         }
 
         public IEnumerable<AddViewModel> Advertisements
