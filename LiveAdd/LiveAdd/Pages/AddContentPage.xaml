@@ -11,24 +11,34 @@
           Style="{StaticResource BackgroundHeadersFootersColor}">
         <Grid Margin="20">
             <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
+            <Image x:Name="GetImage"
+                   Source="http://cdn.playbuzz.com/cdn/7820ec56-cd7d-487c-87ba-30ca87219dc4/26084bf6-4235-4f8f-9c2f-b7294ea62c15.jpg"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Height="150"
+                   Width="150"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"/>
+            
             <TextBlock Text="Advertisement" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="2"
