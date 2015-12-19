@@ -3,11 +3,11 @@ using System.Windows.Input;
 
 namespace LiveAdd.Helpers
 {
-    public class DelegateCommand<T> : ICommand
+    public class DelegateCommand : ICommand
     {
-        private Action<T> execute;
+        private Action execute;
 
-        public DelegateCommand(Action<T> excecute)
+        public DelegateCommand(Action excecute)
         {
             this.execute = excecute;
         }
@@ -20,7 +20,7 @@ namespace LiveAdd.Helpers
 
         public void Execute(object parameter)
         {
-            this.execute((T)parameter);
+            this.execute();
         }
     }
 }

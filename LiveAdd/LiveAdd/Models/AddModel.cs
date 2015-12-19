@@ -8,7 +8,7 @@
 
     using Parse;
 
-    [ParseClassName("Carpool")]
+    [ParseClassName("AddModel")]
     public class AddModel : ParseObject
     {
         [ParseFieldName("creator")]
