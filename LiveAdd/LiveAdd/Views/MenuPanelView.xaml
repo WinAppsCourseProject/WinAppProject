@@ -5,10 +5,7 @@
     xmlns:local="using:LiveAdd.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
-
+    mc:Ignorable="d">
     <StackPanel Background="#FF9BA7B7">
         <Button x:Name="Search"
                 Width="150"
@@ -35,7 +32,8 @@
                 Width="150"
                 Height="50"
                 Background="Transparent"
-                Margin="0">
+                Margin="0"
+                Click="CreateNewAddv_Click">
             <StackPanel Orientation="Horizontal">
                 <TextBlock  Text="&#xE710;"
                             FontFamily="Segoe MDL2 Assets"

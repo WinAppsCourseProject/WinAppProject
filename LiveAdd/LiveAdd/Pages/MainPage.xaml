@@ -102,7 +102,8 @@
                 <SplitView.Pane>
                     <views:MenuPanelView
                         FontSize="18"
-                        LogOut="MenuPanelView_LogOut"/>
+                        LogOut="MenuPanelView_LogOut"
+                        CreateNewAdv="MenuPanelView_CreateNewAdv"/>
                 </SplitView.Pane>
             </SplitView>
         </Grid>

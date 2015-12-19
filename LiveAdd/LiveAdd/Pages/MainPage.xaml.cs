@@ -46,5 +46,9 @@ namespace LiveAdd
             this.Frame.Navigate(typeof(LoginPage));
         }
 
+        private void MenuPanelView_CreateNewAdv(object sender, System.EventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddContentPage));
+        }
     }
 }
