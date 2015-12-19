@@ -41,7 +41,6 @@
                 double latitude = 0.0;
                 double longitude = 0.0;
 
-
                 var accessStatus = await Geolocator.RequestAccessAsync();
                 if (accessStatus != GeolocationAccessStatus.Allowed)
                 {
