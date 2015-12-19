@@ -57,7 +57,7 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="btMenuPane" 
+            <Button x:Name="btnMenuPanel" 
                     Grid.Column="0"
                     Content="&#xE8C4;"
                     FontFamily="Segoe MDL2 Assets"
@@ -65,16 +65,20 @@
                     Height="50"
                     Foreground ="White"
                     Background="Transparent"
-                    Click="btnShowHidePane_Click"/>
+                    Click="btnMenuPanel_Click"/>
             <TextBlock Text="{Binding Title}"
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-            <TextBlock Text="&#x1F50D;"
-                       Grid.Column="2"
-                       Foreground="White"
-                       Style="{StaticResource TytleStyle}"
-                       TextAlignment="Center"/>
+            <CommandBar
+                Grid.Column="2"
+                Background="#FF4D6082"
+                Content="&#xE71E;">
+                    <AppBarButton Label="Menu Item 1"/>
+                    <AppBarButton Label="Menu Item 2"/>
+                    <AppBarButton Label="Menu Item 3"/>
+                </CommandBar>
+
         </Grid>
         <Grid x:Name="panelContent"
               Grid.Row="1"
@@ -87,7 +91,7 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
-            <SplitView x:Name="MySplitView" 
+            <SplitView x:Name="MenuPanel" 
                    DisplayMode="CompactOverlay" 
                    IsPaneOpen="False"
                    CompactPaneLength="0"
@@ -133,11 +137,9 @@
                                    Foreground="White"
                                    VerticalAlignment="Center"/>
                         </StackPanel>
-
                     </StackPanel>
                 </SplitView.Pane>
             </SplitView>
-
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"

@@ -40,14 +40,19 @@ namespace LiveAdd
             }
         }
 
-        private void btnShowHidePane_Click(object sender, RoutedEventArgs e)
+        private void btnMenuPanel_Click(object sender, RoutedEventArgs e)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            MenuPanel.IsPaneOpen = !MenuPanel.IsPaneOpen;
         }
         private void OnLogoutButtonClicked(object sender, RoutedEventArgs e)
         {
             this.ViewModel.LogOut();
             this.Frame.Navigate(typeof(LoginPage));
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
