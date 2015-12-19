@@ -51,7 +51,7 @@
         </Grid.RowDefinitions>
         <Grid x:Name="panelTitle"
               Grid.Row="0"
-              Background="#FF4D6082">
+              Style="{StaticResource BackgroundHeadersFootersColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="1*" />
@@ -82,7 +82,7 @@
         </Grid>
         <Grid x:Name="panelContent"
               Grid.Row="1"
-              Background="#FF293A56">
+              Style="{StaticResource BackgroudContentColor}">
             <ItemsControl ItemsSource="{Binding ContentViewModel.Advertisements}"
                           ItemTemplate="{StaticResource AdvertisementItemTemplate}"
                           >
@@ -144,7 +144,7 @@
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"
-              Background="#FF4D6082">
+               Style="{StaticResource BackgroundHeadersFootersColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80" />
                 <ColumnDefinition Width="1*" />
