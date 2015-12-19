@@ -59,4 +59,14 @@
         <Setter Property="Background" 
                 Value="#FF4D6082"/>
     </Style>
+    <Style x:Key="BackgroudContentColor" 
+           TargetType="Grid">
+        <Setter Property="Background" 
+                Value="#FF293A56"/>
+    </Style>
+    <Style x:Key="BackgroundHeadersFootersColor" 
+           TargetType="Grid">
+        <Setter Property="Background" 
+                Value="#FF4D6082"/>
+    </Style>
 </ResourceDictionary>
