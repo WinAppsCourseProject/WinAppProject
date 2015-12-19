@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<Page
     x:Class="LiveAdd.Pages.AddContentPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
     <Grid x:Name="panelAddContent"
           Style="{StaticResource BackgroundHeadersFootersColor}">
         <Grid Margin="20">
@@ -30,7 +29,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Image x:Name="GetImage"
-                   Source="http://cdn.playbuzz.com/cdn/7820ec56-cd7d-487c-87ba-30ca87219dc4/26084bf6-4235-4f8f-9c2f-b7294ea62c15.jpg"
+                   Source="{Binding ImgUrl}"
                    Grid.Row="1"
                    Grid.Column="0"
                    Height="150"
@@ -38,6 +37,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Grid.ColumnSpan="2"/>
+
             <TextBlock Text="Advertisement" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="2"
@@ -52,7 +52,7 @@
                    Grid.Row="4"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Name, Mode=TwoWay}"
+            <TextBox  Text="{Binding Description, Mode=TwoWay}"
                   Grid.Row="5"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
@@ -61,7 +61,7 @@
                    Grid.Row="6"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Name, Mode=TwoWay}"
+            <TextBox  Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Grid.Row="7"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
@@ -84,7 +84,8 @@
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Content="Publish"/>
+                    Content="Publish"
+                    Command="{Binding Publish}"/>
         </Grid>
     </Grid>
-</UserControl>
+</Page>
