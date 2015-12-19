@@ -11,11 +11,10 @@
     using Parse;
     using Models;
     using System;
-    public class AddContentViewModel : ViewModelBase, IContentViewModel
+    public class AddContentViewModel : ViewModelBase
     {
         static Geolocator geolocator = new Geolocator();
 
-        public ObservableCollection<AddViewModel> advertisements;
         private ICommand publishCommand;
 
         public string ServerErrorMessage { get; set; }
@@ -24,30 +23,7 @@
 
         public string Description { get; set; }
 
-        public decimal Price { get; set; }
-
-        public string Address { get; set; }
-
-        public IEnumerable<AddViewModel> Advertisements
-        {
-            get
-            {
-                if (this.advertisements == null)
-                {
-                    this.advertisements = new ObservableCollection<AddViewModel>();
-                }
-                return this.advertisements;
-            }
-            set
-            {
-                if (this.advertisements == null)
-                {
-                    this.advertisements = new ObservableCollection<AddViewModel>();
-                }
-                this.advertisements.Clear();
-                value.ForEach(this.advertisements.Add);
-            }
-        }
+        public decimal Price { get; set; }  
 
         public ICommand Publish
         {

@@ -1,32 +1,40 @@
-﻿using System.Collections.Generic;
-
-namespace LiveAdd.ViewModels
+﻿namespace LiveAdd.ViewModels
 {
-    public class AddViewModel
+    using Models;
+    using Parse;
+    using System;
+    using System.Linq.Expressions;
+    public class AddViewModel : ViewModelBase
     {
-        private IEnumerable<AddViewModel> newAdvertisement;
-        private decimal price;
+        public static Expression<Func<AddModel, AddViewModel>> FromModel
+        {
+            get
+            {
+                return model => new AddViewModel()
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    Price = model.Price,
+                    Creator = model.Creator,
+                    Worker = model.Worker,
+                    ImgUrl = model.Image.Url.ToString(),
+                    Address = "Somewhere" // This to be done using the google reverse geolocation api in some static service class
+                };
+            }
+        }
 
         public string Name { get; set; }
+
+        public string Description { get; set; }
+
         public string ImgUrl { get; set; }
 
         public decimal Price { get; set; }
 
-        public AddViewModel()
-            : this(string.Empty, string.Empty, 0)
-        {
-        }
+        public string Address { get; set; }
 
-        public AddViewModel(AddViewModel newAdvertisement)
-            : this(newAdvertisement.Name, newAdvertisement.ImgUrl, newAdvertisement.Price)
-        {
-        }
+        public ParseUser Creator { get; set; }
 
-        public AddViewModel(string name, string imgUrl, decimal price)
-        {
-            this.Name = name;
-            this.ImgUrl = imgUrl;
-            this.Price = price;
-        }
+        public ParseUser Worker { get; set; }
     }
 }

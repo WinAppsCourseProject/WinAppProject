@@ -16,16 +16,8 @@ namespace LiveAdd
         public MainPage()
         {
             this.InitializeComponent();
-            var contentViewModel = new AddContentViewModel();
-            contentViewModel.Advertisements = new List<AddViewModel>()
-                {
-                    new AddViewModel("Mercedes", "https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg", 200),
-                    new AddViewModel("Audi", "https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg", 500),
-                    new AddViewModel("BMW", "https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg", 600),
-                    new AddViewModel("Mazda", "https://istatic.bazar.bg/photosbazar/20/pics/208773bbb7017a97f2743a2b6211b339.jpg", 1000)
 
-                };
-            this.ViewModel = new MainPageViewModel(contentViewModel);
+            this.ViewModel = new MainPageViewModel();
         }
 
         public MainPageViewModel ViewModel

@@ -116,8 +116,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddContentViewModel.cs" />
     <Compile Include="ViewModels\AddViewModel.cs" />
-    <Compile Include="ViewModels\IContentViewModel.cs" />
-    <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SignUpPageViewModel.cs" />
