@@ -40,17 +40,17 @@
         }
 
         [ParseFieldName("price")]
-        public decimal Price
+        public double Price
         {
-            get { return GetProperty<decimal>(); }
-            set { SetProperty<decimal>(value); }
+            get { return GetProperty<double>(); }
+            set { SetProperty<double>(value); }
         }
 
         [ParseFieldName("isActive")]
-        public bool IsActive
+        public int IsActive
         {
-            get { return GetProperty<bool>(); }
-            set { SetProperty<bool>(value); }
+            get { return GetProperty<int>(); }
+            set { SetProperty<int>(value); }
         }
 
         [ParseFieldName("image")]
