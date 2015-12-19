@@ -2,6 +2,7 @@
 
 namespace LiveAdd.Pages
 {
+    using Helpers;
     using LiveAdd.ViewModels;
     using System;
     using System.Collections.Generic;
@@ -58,19 +59,16 @@ namespace LiveAdd.Pages
             bool singInSuccess = await this.ViewModel.SignIn();
             if (singInSuccess)
             {
-                this.showInformationMessage("Successfully logged in");
+                Notifier.ShowNotification("Successfully logged in");
                 this.Frame.Navigate(typeof(MainPage));
             }
             else
             {
-                this.showInformationMessage(this.ViewModel.ServerErrorMessage);
-            }
-        }
+                // TODO - see if we can do something about this error
+                //Notifier.ShowNotification(this.ViewModel.ServerErrorMessage);
 
-        private async void showInformationMessage(string message)
-        {
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
+                Notifier.ShowNotification("Incorrect login parameters");
+            }
         }
     }
 }
