@@ -17,7 +17,7 @@
                     Price = model.Price,
                     Creator = model.Creator,
                     Worker = model.Worker,
-                    ImgUrl = model.Image.Url.AbsoluteUri,
+                    ImgUrl = model.Image == null ? "http://www.designofsignage.com/application/symbol/building/image/600x600/no-photo.jpg" : model.Image.Url.AbsoluteUri,
                     Address = "Somewhere" // This to be done using the google reverse geolocation api in some static service class
                 };
             }

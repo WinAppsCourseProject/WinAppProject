@@ -26,6 +26,8 @@
             this.LoadAddsAsync();
         }
 
+        public bool IsLoaded { get; set; }
+
         public int Count
         {
             get { return this.Advertisements.Count(); }
@@ -67,6 +69,8 @@
 
         private async void LoadAddsAsync()
         {
+            this.IsLoaded = false;
+
             var accessStatus = await Geolocator.RequestAccessAsync();
             if (accessStatus != GeolocationAccessStatus.Allowed)
             {
@@ -84,6 +88,8 @@
             this.Advertisements = ads.AsQueryable()
                 .Where(a => this.CheckAvailableAds(a))
                 .Select(AddViewModel.FromModel);
+
+            this.IsLoaded = true;
         }
 
         private bool CheckAvailableAds(AddModel model)

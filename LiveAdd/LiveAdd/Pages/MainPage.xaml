@@ -106,6 +106,9 @@
                         CreateNewAdv="MenuPanelView_CreateNewAdv"/>
                 </SplitView.Pane>
             </SplitView>
+            <ProgressRing HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         IsActive="{Binding IsLoaded}" />
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"
