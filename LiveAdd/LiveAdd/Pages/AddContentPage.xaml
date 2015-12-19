@@ -61,7 +61,7 @@
                    Grid.Row="6"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Price, Mode=TwoWay}"
+            <TextBox  Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Grid.Row="7"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>

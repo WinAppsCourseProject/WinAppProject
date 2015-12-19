@@ -14,10 +14,12 @@
 
     public class MainPageViewModel : ViewModelBase
     {
-        private const int EarthRadius = 6371;
-        private const int MaximumDistanceInKilometers = 50;
+        // Gives us radius of 50 km
+        private const int MaximumDistanceInRadians = 50/6371;
 
         private static Geolocator geolocator = new Geolocator();
+        private double latitude;
+        private double longitude;
 
         private ObservableCollection<AddViewModel> advertisements;
 
@@ -62,9 +64,6 @@
 
         private async void LoadAddsAsync()
         {
-            double latitude = 0.0;
-            double longitude = 0.0;
-
             var accessStatus = await Geolocator.RequestAccessAsync();
             if (accessStatus != GeolocationAccessStatus.Allowed)
             {
@@ -73,28 +72,19 @@
             else
             {
                 Geoposition geoposition = await geolocator.GetGeopositionAsync();
-                latitude = geoposition.Coordinate.Point.Position.Latitude;
-                longitude = geoposition.Coordinate.Point.Position.Longitude;
+                this.latitude = geoposition.Coordinate.Point.Position.Latitude;
+                this.longitude = geoposition.Coordinate.Point.Position.Longitude;
             }
 
+            var parseGeoPoint = new ParseGeoPoint(latitude, longitude);
+            var parseGeoDistance = new ParseGeoDistance(MaximumDistanceInRadians);
+
             var ads = await new ParseQuery<AddModel>()
-            .Where(a => this.CheckAvailableAds(a, latitude, longitude))
-            .FindAsync();
+                .Where(a => a.IsActive == true)
+                .WhereWithinDistance("location", parseGeoPoint, parseGeoDistance)
+                .FindAsync();
 
             this.Advertisements = ads.AsQueryable().Select(AddViewModel.FromModel);
-        }
-
-        private bool CheckAvailableAds(AddModel model, double latitude, double longitude)
-        {
-            var parseLatitude = model.Location.Latitude;
-            var parseLongitude = model.Location.Longitude;
-
-            var dlat = (latitude - parseLatitude) / 180 * Math.PI;
-            var dlon = (longitude - parseLongitude) / 180 * Math.PI;
-            var x = (dlon) * Math.Cos((latitude + parseLatitude) / 2 / 180 * Math.PI);
-            var d = Math.Sqrt(x * x + dlat * dlat) * EarthRadius;
-
-            return model.IsActive == true && d <= MaximumDistanceInKilometers;
         }
     }
 }
