@@ -7,9 +7,9 @@ namespace LiveAdd.Pages
 
     using LiveAdd.ViewModels;
     using Windows.UI.Popups;
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    using Helpers;    /// <summary>
+                      /// An empty page that can be used on its own or navigated to within a Frame.
+                      /// </summary>
     public sealed partial class SignUpPage : Page
     {
         public SignUpPage()
@@ -41,7 +41,7 @@ namespace LiveAdd.Pages
             bool isInputValid = this.ViewModel.ValidateInput();
             if (!isInputValid)
             {
-                this.ShowInformationMessage("All input fields are required.");
+                Notifier.ShowNotification("All input fields are required.");
                 return;
             }
             else
@@ -55,19 +55,16 @@ namespace LiveAdd.Pages
             bool singUpSuccess = await this.ViewModel.SignUp();
             if (singUpSuccess)
             {
-                this.ShowInformationMessage("You successfully registered.");
+                Notifier.ShowNotification("You successfully registered.");
                 this.Frame.Navigate(typeof(MainPage));
             }
             else
             {
-                this.ShowInformationMessage(this.ViewModel.ServerErrorMessage);
-            }
-        }
+                // TODO - see if we can do something about that error
+                //Notifier.ShowNotification(this.ViewModel.ServerErrorMessage);
 
-        private async void ShowInformationMessage(string message)
-        {
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
+                Notifier.ShowNotification("User with same parameters already exists");
+            }
         }
     }
 }

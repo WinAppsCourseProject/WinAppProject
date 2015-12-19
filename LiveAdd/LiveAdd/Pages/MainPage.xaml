@@ -84,7 +84,8 @@
               Grid.Row="1"
               Background="#FF293A56">
             <ItemsControl ItemsSource="{Binding ContentViewModel.Advertisements}"
-                          ItemTemplate="{StaticResource AdvertisementItemTemplate}">
+                          ItemTemplate="{StaticResource AdvertisementItemTemplate}"
+                          >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate >
                         <wc:WrapPanel></wc:WrapPanel>
