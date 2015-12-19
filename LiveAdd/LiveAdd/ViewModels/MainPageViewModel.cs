@@ -20,17 +20,35 @@
         private double longitude;
 
         private ObservableCollection<AddViewModel> advertisements;
+        private bool isLoading;
+        private int count;
 
         public MainPageViewModel()
         {
             this.LoadAddsAsync();
         }
 
-        public bool IsLoaded { get; set; }
+        public bool IsLoading
+        {
+            get { return this.isLoading; }
+            set
+            {
+                this.isLoading = value;
+                RaisePropertyChanged("IsLoading");
+            }
+        }
 
         public int Count
         {
-            get { return this.Advertisements.Count(); }
+            get {
+                this.count = this.Advertisements.Count();
+                return this.count;
+            }
+            set
+            {
+                this.count = value;
+                RaisePropertyChanged("Count");
+            }
         }
 
         public IEnumerable<AddViewModel> Advertisements
@@ -69,7 +87,7 @@
 
         private async void LoadAddsAsync()
         {
-            this.IsLoaded = false;
+            this.IsLoading = true;
 
             var accessStatus = await Geolocator.RequestAccessAsync();
             if (accessStatus != GeolocationAccessStatus.Allowed)
@@ -89,7 +107,8 @@
                 .Where(a => this.CheckAvailableAds(a))
                 .Select(AddViewModel.FromModel);
 
-            this.IsLoaded = true;
+            this.Count = this.Advertisements.Count();
+            this.IsLoading = false;
         }
 
         private bool CheckAvailableAds(AddModel model)

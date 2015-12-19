@@ -5,10 +5,12 @@
     xmlns:local="using:LiveAdd"
     xmlns:wc ="using:LiveAdd"
     xmlns:views ="using:LiveAdd.Views"
+    xmlns:helpers="using:LiveAdd.Helpers"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
+        <helpers:BoolToStringConverter x:Key="boolToStringConverter" />
         <DataTemplate x:Key="AdvertisementItemTemplate">
             <Grid Margin="20, 20, 0, 0"
                       VerticalAlignment="Top"
@@ -108,7 +110,9 @@
             </SplitView>
             <ProgressRing HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         IsActive="{Binding IsLoaded}" />
+                          Height="70"
+                          Width="70"
+                         IsActive="{Binding IsLoading, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
         <Grid x:Name="panelStatus"
                Grid.Row="2"
@@ -119,7 +123,7 @@
                 <ColumnDefinition Width="70" />
                 <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Ready"
+            <TextBlock Text="{Binding IsLoading, Converter={StaticResource boolToStringConverter}}"
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Left"/>
@@ -127,7 +131,7 @@
                        Grid.Column="2"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Right"/>
-            <TextBlock Text="5"
+            <TextBlock Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                        Grid.Column="3"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Left"/>
