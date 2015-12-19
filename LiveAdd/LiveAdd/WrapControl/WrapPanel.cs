@@ -4,7 +4,7 @@
 // All other rights reserved.
 // URL:https://comentsys.wordpress.com/2015/05/27/windows-10-universal-windows-platform-wrap-control/
 
-namespace LiveAdd.WrapControl
+namespace LiveAdd
 {
     using System;
     using System.Runtime.InteropServices;

@@ -60,7 +60,7 @@ namespace LiveAdd.Pages
             if (singInSuccess)
             {
                 Notifier.ShowNotification("Successfully logged in");
-                this.Frame.Navigate(typeof(AddContentPage));
+                this.Frame.Navigate(typeof(MainPage));
             }
             else
             {
