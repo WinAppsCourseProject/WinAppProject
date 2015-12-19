@@ -6,6 +6,8 @@
     using Models;
     using Parse;
     using Windows.Devices.Geolocation;
+    using Windows.Media.Capture;
+    using System.IO;
     public class AddContentViewModel : ViewModelBase
     {
         static Geolocator geolocator = new Geolocator();
@@ -42,6 +44,8 @@
             }
         }
 
+        public ParseFile Image { get; set; }
+
         public ICommand TakePicture
         {
             get
@@ -66,9 +70,29 @@
             }
         }
         
-        private void ExecuteTakePictureCommand()
+        private async void ExecuteTakePictureCommand()
         {
-            throw new NotImplementedException();
+            var camera = new CameraCaptureUI();
+
+            var photo = await camera.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            
+            if (photo != null)
+            {
+                try
+                {
+                    this.ImgUrl = photo.Path;
+                    Byte[] imageFile = File.ReadAllBytes(photo.Path);
+                    this.Image = new ParseFile("somePhoto", imageFile, ".jpg");
+                }
+                catch (Exception ex)
+                {
+                    Notifier.ShowNotification(ex.Message);
+                }
+            }
+            else
+            {
+                Notifier.ShowNotification("Unsuccessful shooting. Of a picture, no worries :)");
+            }
         }
 
         private async void ExecutePublishCommand()
@@ -100,35 +124,10 @@
                     Location = new ParseGeoPoint(latitude, longitude)
                 };
 
-                // TODO image uploading;
-
-                //if (this.Image != null)
-                //{
-                //    // If the file path and name is entered properly, and user has not tapped 'cancel'..
-                //    using (IRandomAccessStream stream = await this.Image.OpenReadAsync())
-                //    {
-                //        // Save to Parse procedure
-                //        RandomAccessStreamReference rasr = RandomAccessStreamReference.CreateFromStream(stream);
-                //        var streamWithContent = await rasr.OpenReadAsync();
-                //        byte[] buffer = new byte[streamWithContent.Size];
-
-                //        try
-                //        {
-                //            await streamWithContent.ReadAsync(buffer.AsBuffer(), (uint)streamWithContent.Size, InputStreamOptions.None);
-                //            var data = buffer;
-
-                //            if (data != null)
-                //            {
-                //                var pic = new Parse.ParseFile("pic.jpg", data);
-                //                carpool.Image = pic;
-                //            }
-                //        }
-                //        catch (Exception)
-                //        {
-                //            //TODO:
-                //        }
-                //    }
-                //}
+                if (this.Image != null)
+                {
+                    add.Image = this.Image;
+                }
 
                 await add.SaveAsync();
 
