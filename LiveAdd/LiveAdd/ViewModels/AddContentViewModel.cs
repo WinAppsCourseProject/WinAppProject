@@ -13,6 +13,7 @@
         private ICommand publishCommand;
         private double price;
         private string imgUrl;
+        private ICommand takePicture;
 
         public string ServerErrorMessage { get; set; }
 
@@ -21,7 +22,7 @@
         public string ImgUrl
         {
             // TODO this will change soon :)
-            get { return "http://cdn.playbuzz.com/cdn/7820ec56-cd7d-487c-87ba-30ca87219dc4/26084bf6-4235-4f8f-9c2f-b7294ea62c15.jpg"; }
+            get { return this.imgUrl; }
             set
             {
                 this.imgUrl = value;
@@ -41,6 +42,18 @@
             }
         }
 
+        public ICommand TakePicture
+        {
+            get
+            {
+                if (this.takePicture == null)
+                {
+                    this.takePicture = new DelegateCommand(this.ExecuteTakePictureCommand);
+                }
+                return this.takePicture;
+            }
+        }
+
         public ICommand Publish
         {
             get
@@ -51,6 +64,11 @@
                 }
                 return this.publishCommand;
             }
+        }
+        
+        private void ExecuteTakePictureCommand()
+        {
+            throw new NotImplementedException();
         }
 
         private async void ExecutePublishCommand()

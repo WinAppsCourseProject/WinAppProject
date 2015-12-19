@@ -70,14 +70,15 @@
                     Grid.Column="0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Content="Take"
+                    Content="Take Picture"
+                    Command="{Binding TakePicture}"
                     />
             <Button x:Name="GetPicture"
                     Grid.Row="9"
                     Grid.Column="1"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Content="Get"/>
+                    Content="Get Picture"/>
             <Button x:Name="Publish"
                      Grid.Row="11"
                     Grid.Column="0"

@@ -26,6 +26,11 @@
             this.LoadAddsAsync();
         }
 
+        public int Count
+        {
+            get { return this.Advertisements.Count(); }
+        }
+
         public IEnumerable<AddViewModel> Advertisements
         {
             get
