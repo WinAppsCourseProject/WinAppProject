@@ -15,7 +15,7 @@
 
         public MainPageViewModel()
         {
-            this.LoadAddsAsync();
+            //this.LoadAddsAsync();
         }
 
         public IEnumerable<AddViewModel> Advertisements

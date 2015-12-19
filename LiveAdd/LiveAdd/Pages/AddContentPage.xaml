@@ -9,44 +9,65 @@
 
     <Grid x:Name="panelAddContent"
           Style="{StaticResource BackgroundHeadersFootersColor}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="Advertisement" 
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Advertisement" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="0"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-        <TextBox  Text="{Binding Name, Mode=TwoWay}"
+            <TextBox  Text="{Binding Name, Mode=TwoWay}"
                   Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
-        <TextBlock Text="Advertisement" 
+            <TextBlock Text="Description" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="2"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-        <TextBox  Text="{Binding Name, Mode=TwoWay}"
+            <TextBox  Text="{Binding Name, Mode=TwoWay}"
                   Grid.Row="3"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
-        <TextBlock Text="Advertisement" 
+            <TextBlock Text="Price" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="4"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-        <TextBox  Text="{Binding Name, Mode=TwoWay}"
+            <TextBox  Text="{Binding Name, Mode=TwoWay}"
                   Grid.Row="5"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
+            <Button x:Name="TakePicture"
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Content="Take"
+                    />
+            <Button x:Name="GetPicture"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Content="Get"
+                    />
+        </Grid>
     </Grid>
 </UserControl>
