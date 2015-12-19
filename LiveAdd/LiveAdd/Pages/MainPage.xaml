@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LiveAdd"
     xmlns:wc ="using:LiveAdd"
-    xmlns:views ="using:LiveAdd.Pages"
+    xmlns:views ="using:LiveAdd.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -71,14 +71,15 @@
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-            <CommandBar
-                Grid.Column="2"
-                Background="#FF4D6082"
-                Content="&#xE71E;">
-                <AppBarButton Label="Menu Item 1"/>
-                <AppBarButton Label="Menu Item 2"/>
-                <AppBarButton Label="Menu Item 3"/>
-            </CommandBar>
+            <Button x:Name="btnMenuPanel1" 
+                    Grid.Column="0"
+                    Content="&#xE8C4;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Width="50"
+                    Height="50"
+                    Foreground ="White"
+                    Background="Transparent"
+                    Click="btnMenuPanel_Click"/>
 
         </Grid>
         <Grid x:Name="panelContent"
