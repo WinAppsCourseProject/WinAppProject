@@ -38,7 +38,6 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Grid.ColumnSpan="2"/>
-            
             <TextBlock Text="Advertisement" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="2"
