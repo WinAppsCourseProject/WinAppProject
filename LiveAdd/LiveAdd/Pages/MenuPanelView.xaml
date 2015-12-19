@@ -1,0 +1,84 @@
+﻿<UserControl
+    x:Class="LiveAdd.Pages.MenuPanelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiveAdd.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <StackPanel Background="#FF9BA7B7">
+        <Button x:Name="Search"
+                Width="150"
+                Height="50"
+                Background="Transparent"
+                Margin="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="&#xE71E;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="30"/>
+                <TextBlock Text="Search"
+                           FontSize="18"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Width="100"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="CreateAddv"
+                Width="150"
+                Height="50"
+                Background="Transparent"
+                Margin="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="&#xE710;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="30"/>
+                <TextBlock Text="Create New"
+                           FontSize="18"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Width="100"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="ViewMyAddv"
+                Width="150"
+                Height="50"
+                Background="Transparent"
+                Margin="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="&#xE890;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="30"/>
+                <TextBlock Text="My Ad's"
+                           FontSize="18"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Width="100"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="LogoutMenu" 
+                Content="Logout"
+                FontSize="18"
+                Width="150"
+                Height="40"
+                Background="Transparent"
+                Foreground="White"
+                Click="OnLogoutButtonClicked"/>
+    </StackPanel>
+</UserControl>

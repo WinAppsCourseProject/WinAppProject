@@ -2,11 +2,10 @@
 
 namespace LiveAdd
 {
-    using System.Collections.Generic;
     using LiveAdd.ViewModels;
-    using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml;
     using Pages;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -36,15 +35,16 @@ namespace LiveAdd
         {
             MenuPanel.IsPaneOpen = !MenuPanel.IsPaneOpen;
         }
-        private void OnLogoutButtonClicked(object sender, RoutedEventArgs e)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuPanelView_LogOut(object sender, System.EventArgs e)
         {
             this.ViewModel.LogOut();
             this.Frame.Navigate(typeof(LoginPage));
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

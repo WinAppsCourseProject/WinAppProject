@@ -3,7 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LiveAdd"
-    xmlns:wc ="using:LiveAdd.WrapControl"
+    xmlns:wc ="using:LiveAdd"
+    xmlns:views ="using:LiveAdd.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -74,10 +75,10 @@
                 Grid.Column="2"
                 Background="#FF4D6082"
                 Content="&#xE71E;">
-                    <AppBarButton Label="Menu Item 1"/>
-                    <AppBarButton Label="Menu Item 2"/>
-                    <AppBarButton Label="Menu Item 3"/>
-                </CommandBar>
+                <AppBarButton Label="Menu Item 1"/>
+                <AppBarButton Label="Menu Item 2"/>
+                <AppBarButton Label="Menu Item 3"/>
+            </CommandBar>
 
         </Grid>
         <Grid x:Name="panelContent"
@@ -92,53 +93,15 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
-            <SplitView x:Name="MenuPanel" 
-                   DisplayMode="CompactOverlay" 
-                   IsPaneOpen="False"
-                   CompactPaneLength="0"
-                   OpenPaneLength="150">
+            <SplitView x:Name="MenuPanel"
+                       DisplayMode="CompactOverlay" 
+                       IsPaneOpen="False"
+                       CompactPaneLength="0"
+                       OpenPaneLength="150">
                 <SplitView.Pane>
-                    <StackPanel Background="#FF9BA7B7">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Message_Menu" 
-                                    Content="&#xE715;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Message"
-                                   FontSize="18"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Favorite_Menu" 
-                                    Content="&#xE1CE;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Favorite"
-                                        FontSize="18"
-                                        Foreground="White"
-                                        VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Settings_Menu" 
-                                    Content="&#xE713;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Width="50"
-                                    Height="50"
-                                    Background="Transparent"
-                                    Foreground="White"/>
-                            <TextBlock Text="Settings"
-                                   FontSize="18"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </StackPanel>
+                    <views:MenuPanelView
+                        FontSize="18"
+                        LogOut="MenuPanelView_LogOut"/>
                 </SplitView.Pane>
             </SplitView>
         </Grid>
@@ -155,11 +118,6 @@
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Left"/>
-            <Button Content="Log out"
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
-                    Style="{StaticResource ButtonFontColorAndSize}"
-                    Click="OnLogoutButtonClicked"/>
             <TextBlock Text="Found: "
                        Grid.Column="2"
                        Style="{StaticResource TytleStyle}"
