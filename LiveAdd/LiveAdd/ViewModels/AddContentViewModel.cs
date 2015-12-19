@@ -1,16 +1,11 @@
 ﻿namespace LiveAdd.ViewModels
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Windows.Input;
-
-    using Windows.Devices.Geolocation;
-
-    using Extensions;
-    using LiveAdd.Helpers;
-    using Parse;
-    using Models;
     using System;
+    using System.Windows.Input;
+    using LiveAdd.Helpers;
+    using Models;
+    using Parse;
+    using Windows.Devices.Geolocation;
     public class AddContentViewModel : ViewModelBase
     {
         static Geolocator geolocator = new Geolocator();
@@ -21,9 +16,11 @@
 
         public string Name { get; set; }
 
+        public string ImgUrl { get; set; }
+
         public string Description { get; set; }
 
-        public decimal Price { get; set; }  
+        public decimal Price { get; set; }
 
         public ICommand Publish
         {
