@@ -1,0 +1,123 @@
+﻿<Page
+    x:Class="LiveAdd.Pages.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiveAdd.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition FromVerticalOffset="500"
+                                         IsStaggeringEnabled="True"/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="panelTitle"
+              Grid.Row="0"
+              Style="{StaticResource HeaderAndFooterColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="&#x2261;"
+                       Grid.Column="0"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+                <TextBlock Text="LiveAdd"
+                       Grid.Column="1"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+                <TextBlock Text="&#x1F50D;"
+                       Grid.Column="2"
+                       Foreground="White"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="panelContent"
+              Grid.Row="1"
+              Style="{StaticResource ContentColor}">
+                <Grid x:Name="ContentRoot" Margin="28,9,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Username" 
+                               Style="{StaticResource LabelTextBlockStyle}"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBox  Text="{Binding User.Username, Mode=TwoWay}"
+                              Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Password" 
+                               Style="{StaticResource LabelTextBlockStyle}" 
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <PasswordBox Password="{Binding User.Password, Mode=TwoWay}"
+                                 Grid.Row="3"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Email" 
+                               Style="{StaticResource LabelTextBlockStyle}" 
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBox   Text="{Binding User.Email, Mode=TwoWay}"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Telephone" 
+                               Style="{StaticResource LabelTextBlockStyle}" 
+                               Grid.Row="6"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    <TextBox   Text="{Binding User.Telephone, Mode=TwoWay}"
+                               Grid.Row="7"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                    
+                    <Button Content="Sign Up"  
+                            Grid.Row="8"
+                            Style="{StaticResource ButtonFontColorAndSize}"
+                            Grid.Column="0"
+                            Click="OnSignUpButtonClick"
+                    />
+                    <Button Content="Cancel"  
+                            Grid.Row="8"
+                            Style="{StaticResource ButtonFontColorAndSize}"
+                            Grid.Column="1"
+                            Click="OnCancelButtonClicked"
+                    />
+                </Grid>
+            </Grid>
+            <Grid x:Name="panelStatus"
+               Grid.Row="2"
+               Style="{StaticResource HeaderAndFooterColor}">
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

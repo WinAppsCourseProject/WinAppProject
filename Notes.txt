@@ -1,0 +1,21 @@
+In the MainPage for logged user - all ads filtered by their location considering the user's location, which will be taken at login.
+When selecting one of the ads - detailed page comes on, where we have option to accept the job(rendering it not active perhaps).
+A button ShowMyAds, that shows all ads that the user created, so he/she can select them and see whether they are answered. cancel them(change their property IsActive to false) and contact the worker or something.
+Place the LogoutButton in a Header/Footer view or something, so that we can reuse it where we will have it as an option.
+
+---PAGES---
+- add DeatailsPage which will be navigated to via SelectionChanged Event in the MainPage. Will have an option AcceptJob in it, changing property isActive to 0;
+- add MyAdsPage where the ads by the current user will be listed in a list box(not active to) and when long press/hold on one of them we have the option to delete it and if possible to contact the worker user via his property Telephone.
+
+---GESTURES---
+- implement hold gesture on MyAds page to get a context menu to delete the ap(render it inative by setting the prop to 0). If possible maybe have an option there to contact the worker user through the Contacts? - ask Doncho if possible! These buttons will not be vissible, until the gesture is applied - how to do it? - possibly leave it for later.
+- implement a pinch gesture to zoom on an image of a chosen ad in the AdDetailsPage
+- implement a swipe gesture to open(possibly close too) the navigation menu.
+
+---VIEWS---
+- take the footer as a separate view. 
+- place the MenuPanelView in all the pages accessible for the registerred user.
+
+---ANIMATIONS---
+-ProgressRing can be considered an animation - we have that.
+-In the xaml the transition properties - check it from Emil :)
