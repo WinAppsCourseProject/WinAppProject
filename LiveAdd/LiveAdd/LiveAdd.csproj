@@ -102,6 +102,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\BoolToStringConverter.cs" />
     <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\GoogleReverseGeolovationService.cs" />
     <Compile Include="Helpers\InputValidator.cs" />
     <Compile Include="Helpers\Notifier.cs" />
     <Compile Include="Models\AddModel.cs" />

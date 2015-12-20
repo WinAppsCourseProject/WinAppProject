@@ -10,7 +10,8 @@
     using System.IO;
     public class AddContentViewModel : ViewModelBase
     {
-        static Geolocator geolocator = new Geolocator();
+        private static Geolocator geolocator = new Geolocator();
+        private static readonly GoogleReverseGeolovationService addressService = new GoogleReverseGeolovationService();
 
         private ICommand publishCommand;
         private double price;
@@ -34,12 +35,23 @@
 
         public string Description { get; set; }
 
+        public string Address { get; set; }
+
         public double Price
         {
             get { return this.price; }
             set
             {
-                this.price = value;
+                // this takes care of both negative and non numeric values.
+                if (value <= 0)
+                {
+                    this.price = -1;
+                }
+                else
+                {
+                    this.price = value;
+                }
+
                 this.RaisePropertyChanged("Price");
             }
         }
@@ -99,6 +111,8 @@
         {
             try
             {
+                this.ValidateInput();
+
                 double latitude = 0.0;
                 double longitude = 0.0;
 
@@ -114,6 +128,8 @@
                     longitude = geoposition.Coordinate.Point.Position.Longitude;
                 }
 
+                this.Address = addressService.GetAddressFromCoordinates(latitude, longitude);
+
                 var add = new AddModel()
                 {
                     Creator = ParseUser.CurrentUser,
@@ -121,6 +137,7 @@
                     Price = this.Price,
                     IsActive = 1,
                     Description = this.Description,
+                    Address = this.Address,
                     Location = new ParseGeoPoint(latitude, longitude)
                 };
 
@@ -136,6 +153,24 @@
             catch (Exception ex)
             {
                 Notifier.ShowNotification(ex.Message);
+            }
+        }
+
+        private void ValidateInput()
+        {
+            if (!InputValidator.ValidateRegularTextInput(this.Name))
+            {
+                throw new ArgumentException("Invalid name - cannot be null ot empty.");
+            }
+
+            if (!InputValidator.ValidateRegularTextInput(this.Description))
+            {
+                throw new ArgumentException("Invalid description - cannot be null ot empty.");
+            }
+
+            if (!InputValidator.ValidatePriceInput(this.Price))
+            {
+                throw new ArgumentException("Invalid price - should be a positive number.");
             }
         }
     }
