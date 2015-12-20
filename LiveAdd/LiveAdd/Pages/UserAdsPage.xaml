@@ -75,7 +75,7 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="4"
                            Grid.Column="2"
-                           Text="{Binding Creator}"
+                           Text="{Binding Creator.Username, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="5"
                            Grid.Column="1"
@@ -83,7 +83,7 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="5"
                            Grid.Column="2"
-                           Text="{Binding Creator_Phone}"
+                           Text="{Binding CreatorPhone, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="6"
                            Grid.Column="1"
@@ -91,7 +91,7 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="6"
                            Grid.Column="2"
-                           Text="{Binding Worker}"
+                           Text="{Binding Worker.Username, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="7"
                            Grid.Column="1"
@@ -99,9 +99,8 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="7"
                            Grid.Column="2"
-                           Text="{Binding Worker_Phone}"
+                           Text="{Binding WorkerPhone, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
-                <!-- More properties will be visualized here. This is just for testing. -->
             </Grid>
         </DataTemplate>
     </Page.Resources>

@@ -108,22 +108,6 @@
             }
         }
 
-        public string CreatorName
-        {
-            get
-            {
-                return ParseUser.CurrentUser.Username;
-            }
-        }
-
-        public string CreatorPhone
-        {
-            get
-            {
-                return (string)ParseUser.CurrentUser["telephone"];
-            }
-        }
-
         private async void ExecuteRemoveCommand()
         {
             try
@@ -153,6 +137,8 @@
         {
             this.IsLoading = true;
 
+            var users = await new ParseQuery<ParseUser>().FindAsync();
+
             var accessStatus = await Geolocator.RequestAccessAsync();
             if (accessStatus != GeolocationAccessStatus.Allowed)
             {
@@ -171,10 +157,10 @@
                 .Where(a => this.CheckAvailableAds(a))
                 .Select(AddViewModel.FromModel);
 
-            var users = await new ParseQuery<ParseUser>().FindAsync();
-
             foreach (var ad in this.UserAdvertisements)
             {
+                ad.Creator = ParseUser.CurrentUser;
+
                 if (ad.Worker != null)
                 {
                     ad.Worker = users.AsQueryable()

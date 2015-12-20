@@ -10,12 +10,13 @@ Place the LogoutButton in a Header/Footer view or something, so that we can reus
 ---GESTURES---
 - DONE - without the contacts part - implement hold gesture on MyAds page to get a context menu to delete the ap(render it inative by setting the prop to 0). If possible maybe have an option there to contact the worker user through the Contacts? - ask Doncho if possible! These buttons will not be vissible, until the gesture is applied - how to do it? - possibly leave it for later.
 - implement a pinch gesture to zoom on an image of a chosen ad in the AdDetailsPage
+- implement double tap to open Search
 - implement a swipe gesture to open(possibly close too) the navigation menu.
 
 ---VIEWS---
-- take the footer as a separate view. 
-- place the MenuPanelView in all the pages accessible for the registerred user.
+- take the footer as a separate view - if there is time.
+- DONE - place the MenuPanelView in all the pages accessible for the registerred user.
 
 ---ANIMATIONS---
--ProgressRing can be considered an animation - we have that.
--In the xaml the transition properties - check it from Emil :)
+- DONE - ProgressRing can be considered an animation - we have that.
+- DONE - In the xaml the transition properties - check it from Emil :)
