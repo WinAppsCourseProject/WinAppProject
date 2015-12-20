@@ -70,7 +70,7 @@
                 Type pageType;
                 if (ParseUser.CurrentUser != null)
                 {
-                    pageType = typeof(MainPage);
+                    pageType = typeof(UserAdsPage);
                 }
                 else
                 {

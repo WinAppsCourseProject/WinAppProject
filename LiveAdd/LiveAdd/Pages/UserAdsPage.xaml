@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="LiveAdd.Pages.UserAdsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiveAdd.Pages"
+    xmlns:helpers="using:LiveAdd.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <helpers:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+        <DataTemplate x:Key="UserAdsTemplate">
+            <Grid Margin="20, 20, 0, 0"
+                      VerticalAlignment="Top"
+                      Width="150"
+                      Height="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.66*"/>
+                    <RowDefinition Height="0.17*"/>
+                    <RowDefinition Height="0.17*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding ImgUrl}"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="1" 
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Text="{Binding Name}"
+                           Style="{StaticResource Аdvertisement}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Price: "
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Price}"
+                           Style="{StaticResource Аdv_Content}"/>
+                <!-- More properties will be visualized here. This is just for testing. -->
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ListView ItemTemplate="{StaticResource UserAdsTemplate}"
+                  ItemsSource="{Binding UserAdvertisements}"
+                  x:Name="userAdsListView"
+                  Grid.Row="0"
+                  Holding="ListView_Holding">
+        </ListView>
+        <ProgressRing  Grid.Row="0"
+                        HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                          Height="70"
+                          Width="70"
+                         IsActive="{Binding IsLoading, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="1"
+                x:Name="removeButton"
+                Content="Remove Ad"
+                HorizontalAlignment="Center"
+                Command="{Binding RemoveCommand}"
+                Visibility="{Binding IsRemoveBtnVisible,
+                                     Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged, 
+                                     Converter={StaticResource boolToVisibilityConverter}}"/>
+
+
+    </Grid>
+</Page>
