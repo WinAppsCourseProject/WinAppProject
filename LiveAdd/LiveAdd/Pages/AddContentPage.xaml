@@ -110,7 +110,7 @@
                         VerticalAlignment="Stretch"
                         Content="&#xE722;"
                         FontFamily="Segoe MDL2 Assets"
-                        FontSize="18"
+                        FontSize="24"
                         Command="{Binding TakePicture}"/>
                 <Button x:Name="Publish"
                      Grid.Row="11"

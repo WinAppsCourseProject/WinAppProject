@@ -74,12 +74,14 @@
                             Grid.Row="5"
                             Style="{StaticResource ButtonFontColorAndSize}"
                             Grid.Column="0"
-                            Click="OnLoginButtonClicked"/>
+                            Click="OnLoginButtonClicked"
+                            HorizontalAlignment="Center"/>
                     <Button Content="Sign Up"  
                             Grid.Row="5"
                             Style="{StaticResource ButtonFontColorAndSize}"
                             Grid.Column="1"
-                            Click="OnSignUpButtonClicked"/>
+                            Click="OnSignUpButtonClicked"
+                            HorizontalAlignment="Center"/>
                 </Grid>
             </Grid>
             <Grid x:Name="panelStatus"
