@@ -3,11 +3,6 @@ When selecting one of the ads - detailed page comes on, where we have option to 
 A button ShowMyAds, that shows all ads that the user created, so he/she can select them and see whether they are answered. cancel them(change their property IsActive to false) and contact the worker or something.
 Place the LogoutButton in a Header/Footer view or something, so that we can reuse it where we will have it as an option.
 
----HQC---
-- to be consistant with the MVVM patters(kinda):
-- fix the login and signu up pages to work with commands bound with the respective buttons
-
-
 ---PAGES---
 - change the user's model, to have a property ГеоПоинт in Parse, which is set only at login, automatically and keeps the current geoposition of the user.
 - add DeatailsPage which will be navigated to via SelectionChanged Event in the MainPage. Will have an option AcceptJob in it, changing property isActive to 0;
