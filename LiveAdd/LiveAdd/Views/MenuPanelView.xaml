@@ -7,6 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <StackPanel Background="#FF9BA7B7">
+        <Button x:Name="HomePage"
+                Width="150"
+                Height="50"
+                Background="Transparent"
+                Margin="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="&#xE7F0;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="30"/>
+                <TextBlock Text="Home"
+                           FontSize="18"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Width="100"/>
+            </StackPanel>
+        </Button>
         <Button x:Name="Search"
                 Width="150"
                 Height="50"

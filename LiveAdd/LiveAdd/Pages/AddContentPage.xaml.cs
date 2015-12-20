@@ -1,4 +1,5 @@
 ﻿using LiveAdd.ViewModels;
+using Parse;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -46,5 +47,16 @@ namespace LiveAdd.Pages
 
             this.ViewModel = new AddContentViewModel();
         }
+
+        private void btnMenuPanel_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPanel.IsPaneOpen = !MenuPanel.IsPaneOpen;
+        }
+
+        private void MenuPanelView_LogOut(object sender, System.EventArgs e)
+        {
+            ParseUser.LogOut();
+            this.Frame.Navigate(typeof(LoginPage));
+        }        
     }
 }

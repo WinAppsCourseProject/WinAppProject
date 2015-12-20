@@ -3,33 +3,69 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LiveAdd.Pages"
+    xmlns:views ="using:LiveAdd.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid x:Name="panelAddContent"
-          Style="{StaticResource BackgroundHeadersFootersColor}">       
-        
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="panelTitle"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="2"
+                  Style="{StaticResource BackgroundHeadersFootersColor}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <Image x:Name="GetImage"
+            <Button x:Name="btnMenuPanel" 
+                    Grid.Column="0"
+                    Content="&#xE8C4;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Width="50"
+                    Height="50"
+                    Foreground ="White"
+                    Background="Transparent"
+                    Click="btnMenuPanel_Click"/>
+            <TextBlock Text="{Binding Title}"
+                       Grid.Column="1"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+        </Grid>
+
+        <Grid x:Name="panelAddContent"
+              Grid.Row="1"
+              Style="{StaticResource BackgroudContentColor}">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.ChildrenTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </Grid.ChildrenTransitions>
+                <Image x:Name="GetImage"
                    Source="{Binding ImgUrl}"
                    Grid.Row="1"
                    Grid.Column="0"
@@ -38,49 +74,45 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Grid.ColumnSpan="2"/>
-
-            <TextBlock Text="Advertisement" 
+                <TextBlock Text="Advertisement" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="2"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Name, Mode=TwoWay}"
+                <TextBox  Text="{Binding Name, Mode=TwoWay}"
                   Grid.Row="3"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
-            <TextBlock Text="Description" 
+                <TextBlock Text="Description" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="4"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Description, Mode=TwoWay}"
+                <TextBox  Text="{Binding Description, Mode=TwoWay}"
                   Grid.Row="5"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
-            <TextBlock Text="Price" 
+                <TextBlock Text="Price" 
                    Style="{StaticResource LabelTextBlockStyle}"
                    Grid.Row="6"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"/>
-            <TextBox  Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox  Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Grid.Row="7"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"/>
-            <Button x:Name="TakePicture"
-                    Grid.Row="9"
-                    Grid.Column="0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Content="Take Picture"
-                    Command="{Binding TakePicture}"
-                    />
-            <Button x:Name="GetPicture"
-                    Grid.Row="9"
-                    Grid.Column="1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Content="Get Picture"/>
-            <Button x:Name="Publish"
+                <Button x:Name="TakePicture"
+                        Margin="20,5,20,5"
+                        Grid.Row="9"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Content="&#xE722;"
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="18"
+                        Command="{Binding TakePicture}"/>
+                <Button x:Name="Publish"
                      Grid.Row="11"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
@@ -88,6 +120,19 @@
                     VerticalAlignment="Stretch"
                     Content="Publish"
                     Command="{Binding Publish}"/>
+            </Grid>
+            <SplitView x:Name="MenuPanel"
+                     DisplayMode="Overlay" 
+                     IsPaneOpen="False"
+                     CompactPaneLength="0"
+                     OpenPaneLength="150"
+                         VerticalAlignment="Stretch">
+                <SplitView.Pane>
+                    <views:MenuPanelView
+                                FontSize="18"
+                                LogOut="MenuPanelView_LogOut"/>
+                </SplitView.Pane>
+            </SplitView>
         </Grid>
     </Grid>
 </Page>
