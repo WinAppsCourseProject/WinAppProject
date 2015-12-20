@@ -13,7 +13,7 @@
                 Background="Transparent"
                 Margin="0">
             <StackPanel Orientation="Horizontal">
-                <TextBlock  Text="&#xE7F0;"
+                <TextBlock  Text="&#xE80F;"
                             FontFamily="Segoe MDL2 Assets"
                             FontSize="18"
                             Foreground="White"
