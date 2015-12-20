@@ -4,7 +4,6 @@ A button ShowMyAds, that shows all ads that the user created, so he/she can sele
 Place the LogoutButton in a Header/Footer view or something, so that we can reuse it where we will have it as an option.
 
 ---PAGES---
-- change the user's model, to have a property ГеоПоинт in Parse, which is set only at login, automatically and keeps the current geoposition of the user.
 - add DeatailsPage which will be navigated to via SelectionChanged Event in the MainPage. Will have an option AcceptJob in it, changing property isActive to 0;
 - add MyAdsPage where the ads by the current user will be listed in a list box(not active to) and when long press/hold on one of them we have the option to delete it and if possible to contact the worker user via his property Telephone.
 
