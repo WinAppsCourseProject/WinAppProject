@@ -161,6 +161,7 @@
                         FontSize="18"
                         GoToHomePage="MenuPanelView_GoToHomePage"
                         CreateNewAdv="MenuPanelView_CreateNewAdv"
+                        GoToMyAddv="MenuPanelView_GoToMyAddv"
                         LogOut="MenuPanelView_LogOut"/>
                         
                 </SplitView.Pane>

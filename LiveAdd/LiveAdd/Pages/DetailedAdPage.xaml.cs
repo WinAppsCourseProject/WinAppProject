@@ -15,7 +15,7 @@ namespace LiveAdd.Pages
     {
         public DetailedAdPage()
         {
-            this.InitializeComponent();            
+            this.InitializeComponent();
         }
 
         public AddViewModel ViewModel
@@ -55,6 +55,11 @@ namespace LiveAdd.Pages
         private void MenuPanelView_GoToHomePage(object sender, System.EventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void MenuPanelView_GoToMyAddv(object sender, System.EventArgs e)
+        {
+            this.Frame.Navigate(typeof(UserAdsPage));
         }
     }
 }
