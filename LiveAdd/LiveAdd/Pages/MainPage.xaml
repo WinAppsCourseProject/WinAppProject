@@ -49,10 +49,11 @@
     <Grid >
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition FromVerticalOffset="500"
+                                         IsStaggeringEnabled="True"/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="1*" />
@@ -94,7 +95,9 @@
               Grid.Row="1"
               Style="{StaticResource BackgroudContentColor}">
             <ListBox ItemsSource="{Binding Advertisements}"
-                          ItemTemplate="{StaticResource AdvertisementItemTemplate}"
+                     ItemTemplate="{StaticResource AdvertisementItemTemplate}"
+                     SelectionMode="Single"
+                     SelectionChanged="OnListBoxSelectionChanged"
                           >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate >

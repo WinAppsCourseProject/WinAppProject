@@ -109,6 +109,9 @@
     <Compile Include="Pages\AddContentPage.xaml.cs">
       <DependentUpon>AddContentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DetailedAdPage.xaml.cs">
+      <DependentUpon>DetailedAdPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Pages\AddContentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DetailedAdPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

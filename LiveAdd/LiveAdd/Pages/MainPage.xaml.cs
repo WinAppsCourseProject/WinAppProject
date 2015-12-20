@@ -50,5 +50,12 @@ namespace LiveAdd
         {
             this.Frame.Navigate(typeof(AddContentPage));
         }
+
+        private void OnListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var adsListBox = (sender as ListBox);
+            var selectedObject = adsListBox.SelectedItem;
+            this.Frame.Navigate(typeof(DetailedAdPage), selectedObject);
+        }
     }
 }

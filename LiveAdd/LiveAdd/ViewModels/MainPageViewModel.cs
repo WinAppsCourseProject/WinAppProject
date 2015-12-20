@@ -121,7 +121,8 @@
             var x = (dlon) * Math.Cos((latitude + parseLatitude) / 2 / 180 * Math.PI);
             var d = Math.Sqrt(x * x + dlat * dlat) * EarthRadius;
 
-            return model.IsActive == 1 && d <= MaximumDistanceInKilometers;
+            return model.IsActive == 1 && d <= MaximumDistanceInKilometers
+                                       && model.Worker == null;
         }
     }
 }
