@@ -15,8 +15,10 @@
             <Grid Margin="5, 5, 0, 0"
                       VerticalAlignment="Top"
                       Width="300"
-                      Height="200">
+                      Height="150">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -77,11 +79,27 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="5"
                            Grid.Column="1"
-                           Text="Worker: "
+                           Text="Phone: "
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="5"
                            Grid.Column="2"
+                           Text="{Binding Creator_Phone}"
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="6"
+                           Grid.Column="1"
+                           Text="Worker: "
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="6"
+                           Grid.Column="2"
                            Text="{Binding Worker}"
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="7"
+                           Grid.Column="1"
+                           Text="Phone: "
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="7"
+                           Grid.Column="2"
+                           Text="{Binding Worker_Phone}"
                            Style="{StaticResource Аdv_Content}"/>
                 <!-- More properties will be visualized here. This is just for testing. -->
             </Grid>
