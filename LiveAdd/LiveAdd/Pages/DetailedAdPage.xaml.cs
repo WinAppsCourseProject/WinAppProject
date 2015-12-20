@@ -15,9 +15,7 @@ namespace LiveAdd.Pages
     {
         public DetailedAdPage()
         {
-            this.InitializeComponent();
-
-            this.ViewModel = new AddViewModel();
+            this.InitializeComponent();            
         }
 
         public AddViewModel ViewModel

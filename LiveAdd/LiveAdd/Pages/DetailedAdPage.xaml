@@ -122,18 +122,18 @@
                            FontSize="18"
                            Margin="10"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding Creator.Name}"
+                <TextBlock Text="{Binding Creator.Username}"
                            Grid.Row="5"
                            Grid.Column="1"
                            FontSize="18"
                            Margin="10"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding Creater.Telephone}"
+                <TextBlock Text="{Binding CreatorPhone}"
                            Grid.Row="6"
                            Grid.Column="1"
                            FontSize="18"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding Worker.Telephone}"
+                <TextBlock Text="{Binding WorkerPhone, UpdateSourceTrigger=PropertyChanged}"
                            Grid.Row="7"
                            Grid.Column="1"
                            FontSize="18"

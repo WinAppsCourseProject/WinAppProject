@@ -7,11 +7,18 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Threading.Tasks;
     using System.Windows.Input;
 
     public class AddViewModel : ViewModelBase
     {
         private ICommand acceptJobCommand;
+        private ParseUser creator;
+        private ParseUser worker;
+
+        public AddViewModel()
+        {
+        }
 
         public static Expression<Func<AddModel, AddViewModel>> FromModel
         {
@@ -70,9 +77,10 @@
                     }
 
                     adModel.Worker = ParseUser.CurrentUser;
+                    this.Worker = ParseUser.CurrentUser;
 
                     await adModel.SaveAsync();
-                    
+
                     this.Worker = adModel.Worker;
 
                     Notifier.ShowNotification("You successfully accepted this ad.");
@@ -94,8 +102,46 @@
 
         public string Address { get; set; }
 
-        public ParseUser Creator { get; set; }
+        public ParseUser Creator
+        {
+            get { return this.creator; }
+            set
+            {
+                this.creator = value;
+                RaisePropertyChanged("Creator");
+            }
+        }
 
-        public ParseUser Worker { get; set; }
+        public string CreatorPhone
+        {
+            get
+            {
+                var bla = (string)this.Creator["telephone"];
+                return bla;
+            }
+        }
+
+        public ParseUser Worker
+        {
+            get { return this.worker; }
+            set
+            {
+                this.worker = value;
+                RaisePropertyChanged("Worker");
+            }
+        }
+
+        public string WorkerPhone
+        {
+            get
+            {
+                if (this.Worker == null)
+                {
+                    return string.Empty;
+                }
+                
+                return (string)this.Worker["telephone"];
+            }
+        }
     }
 }
