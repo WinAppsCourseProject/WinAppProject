@@ -18,28 +18,17 @@
               Grid.Row="0"
               Style="{StaticResource HeaderAndFooterColor}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="&#x2261;"
-                       Grid.Column="0"
-                       Style="{StaticResource TytleStyle}"
-                       TextAlignment="Center"/>
                 <TextBlock Text="LiveAdd"
                        Grid.Column="1"
-                       Style="{StaticResource TytleStyle}"
-                       TextAlignment="Center"/>
-                <TextBlock Text="&#x1F50D;"
-                       Grid.Column="2"
-                       Foreground="White"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
             </Grid>
             <Grid x:Name="panelContent"
               Grid.Row="1"
               Style="{StaticResource ContentColor}">
-                <Grid x:Name="ContentRoot" Margin="28,9,10,0">
+                <Grid x:Name="ContentRoot" Margin="20,9,20,0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="60"/>
