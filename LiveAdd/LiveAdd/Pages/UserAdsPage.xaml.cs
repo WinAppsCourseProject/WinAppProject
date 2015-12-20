@@ -60,9 +60,13 @@ namespace LiveAdd.Pages
             this.Frame.Navigate(typeof(LoginPage));
         }
 
-        private void MenuPanelView_GoHomePage(object sender, EventArgs e)
+        private void MenuPanelView_GoToHomePage(object sender, EventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+        private void MenuPanelView_CreateNewAdv(object sender, EventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddContentPage));
         }
     }
 }

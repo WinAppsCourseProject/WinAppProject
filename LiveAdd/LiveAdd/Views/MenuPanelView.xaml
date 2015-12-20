@@ -28,27 +28,6 @@
                            Width="100"/>
             </StackPanel>
         </Button>
-        <Button x:Name="Search"
-                Width="150"
-                Height="50"
-                Background="Transparent"
-                Margin="0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  Text="&#xE71E;"
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="18"
-                            Foreground="White"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Width="30"/>
-                <TextBlock Text="Search"
-                           FontSize="18"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Width="100"/>
-            </StackPanel>
-        </Button>
         <Button x:Name="CreateAddv"
                 Width="150"
                 Height="50"

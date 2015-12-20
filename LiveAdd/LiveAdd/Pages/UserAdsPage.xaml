@@ -94,27 +94,29 @@
                           Width="70"
                          IsActive="{Binding IsLoading, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Row="1"
-                x:Name="removeButton"
-                Content="Remove Ad"
-                HorizontalAlignment="Center"
-                Command="{Binding RemoveCommand}"
-                Visibility="{Binding IsRemoveBtnVisible,
-                                     Mode=TwoWay,
-                                     UpdateSourceTrigger=PropertyChanged, 
-                                     Converter={StaticResource boolToVisibilityConverter}}"/>
+                    x:Name="removeButton"
+                    Content="Remove Ad"
+                    HorizontalAlignment="Center"
+                    Command="{Binding RemoveCommand}"
+                    Visibility="{Binding IsRemoveBtnVisible,
+                                         Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged, 
+                                         Converter={StaticResource boolToVisibilityConverter}}"/>
+            <SplitView x:Name="MenuPanel"
+                       DisplayMode="CompactOverlay" 
+                       IsPaneOpen="False"
+                       CompactPaneLength="0"
+                       OpenPaneLength="150">
+                <SplitView.Pane>
+                    <views:MenuPanelView
+                        FontSize="18"
+                        GoToHomePage="MenuPanelView_GoToHomePage"
+                        CreateNewAdv="MenuPanelView_CreateNewAdv"
+                        LogOut="MenuPanelView_LogOut"/>
+                </SplitView.Pane>
+            </SplitView>
+
         </Grid>
-        <SplitView x:Name="MenuPanel"
-                     DisplayMode="Overlay" 
-                     IsPaneOpen="False"
-                     CompactPaneLength="0"
-                     OpenPaneLength="150"
-                         VerticalAlignment="Stretch">
-            <SplitView.Pane>
-                <views:MenuPanelView
-                                FontSize="18"
-                                GoToHomePage="MenuPanelView_GoHomePage"
-                                LogOut="MenuPanelView_LogOut"/>
-            </SplitView.Pane>
-        </SplitView>
+        
     </Grid>
 </Page>

@@ -137,7 +137,7 @@
     <Compile Include="Views\MenuPanelView.xaml.cs">
       <DependentUpon>MenuPanelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WrapControl\WrapPanel.cs" />
+    <Compile Include="Views\WrapControl\WrapPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
