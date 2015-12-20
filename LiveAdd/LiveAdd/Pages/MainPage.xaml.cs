@@ -57,5 +57,10 @@ namespace LiveAdd
             var selectedObject = adsListBox.SelectedItem;
             this.Frame.Navigate(typeof(DetailedAdPage), selectedObject);
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchPanel.IsPaneOpen = !SearchPanel.IsPaneOpen;
+        }
     }
 }

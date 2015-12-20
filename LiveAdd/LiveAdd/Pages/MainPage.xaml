@@ -80,7 +80,35 @@
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-
+            <Button x:Name="SearchButton"
+                    Grid.Column="2"
+                    Height="50"
+                    Width="50"
+                    Background="Transparent"
+                    Click="SearchButton_Click">
+                <TextBlock  Text="&#xE71E;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="18"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+            </Button>
+            <Grid Grid.Column="1">
+                <SplitView x:Name="SearchPanel"
+                           DisplayMode="CompactOverlay"
+                           IsPaneOpen="False"
+                           FlowDirection="RightToLeft"
+                           CompactPaneLength="0"
+                           OpenPaneLength="250">
+                    <SplitView.Pane>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Height="50"
+                                     Width="250"
+                                     />
+                        </StackPanel>
+                    </SplitView.Pane>
+            </SplitView>
+            </Grid>
         </Grid>
         <Grid x:Name="panelContent"
               Grid.Row="1"
