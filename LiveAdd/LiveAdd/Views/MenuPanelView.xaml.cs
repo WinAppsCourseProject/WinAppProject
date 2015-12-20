@@ -11,6 +11,8 @@ namespace LiveAdd.Views
         public event EventHandler LogOut;
 
         public event EventHandler CreateNewAdv;
+
+        public event EventHandler GoHomePage;
         public MenuPanelView()
         {
             this.InitializeComponent();
@@ -29,6 +31,14 @@ namespace LiveAdd.Views
             if (this.CreateNewAdv != null)
             {
                 this.CreateNewAdv(this, null);
+            }
+        }
+
+        private void HomePage_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.GoHomePage != null)
+            {
+                this.GoHomePage(this, null);
             }
         }
     }

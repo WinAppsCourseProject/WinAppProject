@@ -80,15 +80,6 @@
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-            <Button x:Name="btnMenuPanel1" 
-                    Grid.Column="0"
-                    Content="&#xE8C4;"
-                    FontFamily="Segoe MDL2 Assets"
-                    Width="50"
-                    Height="50"
-                    Foreground ="White"
-                    Background="Transparent"
-                    Click="btnMenuPanel_Click"/>
 
         </Grid>
         <Grid x:Name="panelContent"
