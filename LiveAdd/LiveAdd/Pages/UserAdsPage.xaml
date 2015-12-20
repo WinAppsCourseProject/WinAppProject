@@ -15,14 +15,14 @@
             <Grid Margin="5, 5, 0, 0"
                       VerticalAlignment="Top"
                       Width="300"
-                      Height="150">
+                      Height="220">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -36,7 +36,7 @@
                        Height="200"
                        Grid.Row="0"
                        Grid.Column="0"
-                       Grid.RowSpan="7"
+                       Grid.RowSpan="5"
                        Margin="10"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
@@ -63,42 +63,44 @@
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="3"
                            Grid.Column="1"
-                           Text="Address: "
+                           Text="Creator: "
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="3"
                            Grid.Column="2"
-                           Text="{Binding Address}"
-                           Style="{StaticResource Аdv_Content}"/>
-                <TextBlock Grid.Row="4"
-                           Grid.Column="1"
-                           Text="Creator: "
-                           Style="{StaticResource Аdv_Content}"/>
-                <TextBlock Grid.Row="4"
-                           Grid.Column="2"
                            Text="{Binding Creator.Username, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
-                <TextBlock Grid.Row="5"
+                <TextBlock Grid.Row="4"
                            Grid.Column="1"
                            Text="Phone: "
                            Style="{StaticResource Аdv_Content}"/>
-                <TextBlock Grid.Row="5"
+                <TextBlock Grid.Row="4"
                            Grid.Column="2"
                            Text="{Binding CreatorPhone, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
-                <TextBlock Grid.Row="6"
+                <TextBlock Grid.Row="5"
+                           Grid.Column="0"
+                           Text="Address: "
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="5"
                            Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Text="{Binding Address}"
+                           TextWrapping="Wrap"
+                           Style="{StaticResource Аdv_Content}"/>
+                <TextBlock Grid.Row="6"
+                           Grid.Column="0"
                            Text="Worker: "
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="6"
-                           Grid.Column="2"
+                           Grid.Column="1"
                            Text="{Binding Worker.Username, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="7"
-                           Grid.Column="1"
+                           Grid.Column="0"
                            Text="Phone: "
                            Style="{StaticResource Аdv_Content}"/>
                 <TextBlock Grid.Row="7"
-                           Grid.Column="2"
+                           Grid.Column="1"
                            Text="{Binding WorkerPhone, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource Аdv_Content}"/>
             </Grid>
