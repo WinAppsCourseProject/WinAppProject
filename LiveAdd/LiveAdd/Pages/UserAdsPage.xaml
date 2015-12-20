@@ -154,7 +154,10 @@
                          IsActive="{Binding IsLoading, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Row="1"
                     x:Name="removeButton"
-                    Content="Remove Ad"
+                    Content="&#xE107;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Width="150"
+                    Height="50"
                     HorizontalAlignment="Center"
                     Command="{Binding RemoveCommand}"
                     Visibility="{Binding IsRemoveBtnVisible,
