@@ -53,5 +53,10 @@ namespace LiveAdd.Pages
             ParseUser.LogOut();
             this.Frame.Navigate(typeof(LoginPage));
         }
+
+        private void MenuPanelView_GoHomePage(object sender, System.EventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
