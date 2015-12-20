@@ -75,7 +75,8 @@
                     Height="50"
                     Foreground ="White"
                     Background="Transparent"
-                    Click="btnMenuPanel_Click"/>
+                    Click="btnMenuPanel_Click" 
+                    VerticalAlignment="Bottom"/>
             <TextBlock Text="{Binding Title}"
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
@@ -103,8 +104,7 @@
                     <SplitView.Pane>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Height="50"
-                                     Width="250"
-                                     />
+                                     Width="250"/>
                         </StackPanel>
                     </SplitView.Pane>
             </SplitView>
@@ -116,8 +116,7 @@
             <ListBox ItemsSource="{Binding Advertisements}"
                      ItemTemplate="{StaticResource AdvertisementItemTemplate}"
                      SelectionMode="Single"
-                     SelectionChanged="OnListBoxSelectionChanged"
-                          >
+                     SelectionChanged="OnListBoxSelectionChanged">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate >
                         <wc:WrapPanel></wc:WrapPanel>
@@ -132,8 +131,9 @@
                 <SplitView.Pane>
                     <views:MenuPanelView
                         FontSize="18"
-                        LogOut="MenuPanelView_LogOut"
-                        CreateNewAdv="MenuPanelView_CreateNewAdv"/>
+                        CreateNewAdv="MenuPanelView_CreateNewAdv"
+                        GoToMyAddv="MenuPanelView_GoToMyAddv"
+                        LogOut="MenuPanelView_LogOut"/>
                 </SplitView.Pane>
             </SplitView>
             <ProgressRing HorizontalAlignment="Center"

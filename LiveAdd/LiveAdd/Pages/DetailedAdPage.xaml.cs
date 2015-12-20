@@ -54,7 +54,7 @@ namespace LiveAdd.Pages
             this.Frame.Navigate(typeof(LoginPage));
         }
 
-        private void MenuPanelView_GoHomePage(object sender, System.EventArgs e)
+        private void MenuPanelView_GoToHomePage(object sender, System.EventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }

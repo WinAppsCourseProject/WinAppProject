@@ -159,7 +159,7 @@
                 <SplitView.Pane>
                     <views:MenuPanelView
                         FontSize="18"
-                        GoToHomePage="MenuPanelView_GoHomePage"
+                        GoToHomePage="MenuPanelView_GoToHomePage"
                         CreateNewAdv="MenuPanelView_CreateNewAdv"
                         LogOut="MenuPanelView_LogOut"/>
                         

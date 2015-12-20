@@ -62,5 +62,10 @@ namespace LiveAdd
         {
             SearchPanel.IsPaneOpen = !SearchPanel.IsPaneOpen;
         }
+
+        private void MenuPanelView_GoToMyAddv(object sender, System.EventArgs e)
+        {
+            this.Frame.Navigate(typeof(UserAdsPage));
+        }
     }
 }
