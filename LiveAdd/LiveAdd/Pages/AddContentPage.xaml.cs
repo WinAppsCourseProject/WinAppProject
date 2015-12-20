@@ -58,5 +58,14 @@ namespace LiveAdd.Pages
         {
             this.Frame.Navigate(typeof(UserAdsPage));
         }
+
+        private void panelTitle_ManipulationCompleted(object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
+        {
+            var velocities = e.Velocities;
+            if (velocities.Linear.X > 0)
+            {
+                this.MenuPanel.IsPaneOpen = !this.MenuPanel.IsPaneOpen;
+            }
+        }
     }
 }

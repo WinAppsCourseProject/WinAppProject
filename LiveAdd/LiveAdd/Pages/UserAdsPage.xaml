@@ -112,7 +112,9 @@
         </Grid.RowDefinitions>
         <Grid x:Name="panelTitle"
               Grid.Row="0"
-              Style="{StaticResource BackgroundHeadersFootersColor}">
+              Style="{StaticResource BackgroundHeadersFootersColor}"
+              ManipulationMode="TranslateX"
+              ManipulationCompleted="panelTitle_ManipulationCompleted">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="1*" />

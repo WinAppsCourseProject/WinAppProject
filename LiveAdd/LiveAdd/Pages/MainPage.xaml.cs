@@ -6,6 +6,7 @@ namespace LiveAdd
     using Pages;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Input;
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -33,11 +34,7 @@ namespace LiveAdd
 
         private void btnMenuPanel_Click(object sender, RoutedEventArgs e)
         {
-            MenuPanel.IsPaneOpen = !MenuPanel.IsPaneOpen;
-        }
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.MenuPanel.IsPaneOpen = !this.MenuPanel.IsPaneOpen;
         }
 
         private void MenuPanelView_LogOut(object sender, System.EventArgs e)
@@ -60,12 +57,25 @@ namespace LiveAdd
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            SearchPanel.IsPaneOpen = !SearchPanel.IsPaneOpen;
+            this.SearchPanel.IsPaneOpen = !this.SearchPanel.IsPaneOpen;
         }
 
         private void MenuPanelView_GoToMyAddv(object sender, System.EventArgs e)
         {
             this.Frame.Navigate(typeof(UserAdsPage));
+        }
+
+        private void panelTitle_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            var velocities = e.Velocities;
+            if (velocities.Linear.X > 0)
+            {
+                this.MenuPanel.IsPaneOpen = !this.MenuPanel.IsPaneOpen;
+            }
+            else if (velocities.Linear.X < 0)
+            {
+                this.SearchPanel.IsPaneOpen = !this.SearchPanel.IsPaneOpen;
+            }         
         }
     }
 }
