@@ -66,5 +66,12 @@
             get { return GetProperty<ParseGeoPoint>(); }
             set { SetProperty<ParseGeoPoint>(value); }
         }
+
+        [ParseFieldName("address")]
+        public string Address
+        {
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
     }
 }

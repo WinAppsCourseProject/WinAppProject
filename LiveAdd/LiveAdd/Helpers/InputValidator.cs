@@ -12,6 +12,16 @@
             return false;
         }
 
+        public static bool ValidatePriceInput(double price)
+        {
+            if (price > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public static bool ValidatePasswordTextInput(string password)
         {
             if (password != null && password.Length >= 6)
