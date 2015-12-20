@@ -93,15 +93,15 @@
         <Grid x:Name="panelContent"
               Grid.Row="1"
               Style="{StaticResource BackgroudContentColor}">
-            <ItemsControl ItemsSource="{Binding Advertisements}"
+            <ListBox ItemsSource="{Binding Advertisements}"
                           ItemTemplate="{StaticResource AdvertisementItemTemplate}"
                           >
-                <ItemsControl.ItemsPanel>
+                <ListBox.ItemsPanel>
                     <ItemsPanelTemplate >
                         <wc:WrapPanel></wc:WrapPanel>
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <SplitView x:Name="MenuPanel"
                        DisplayMode="CompactOverlay" 
                        IsPaneOpen="False"
