@@ -53,7 +53,7 @@
                     <ColumnDefinition Width="0.36*"/>
                     <ColumnDefinition Width="0.64*"/>
                 </Grid.ColumnDefinitions>
-                    <Image Source="{Binding ImgUrl}"
+                <Image Source="{Binding ImgUrl}"
                        Grid.Row="0"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"

@@ -108,6 +108,22 @@
             }
         }
 
+        public string CreatorName
+        {
+            get
+            {
+                return ParseUser.CurrentUser.Username;
+            }
+        }
+
+        public string CreatorPhone
+        {
+            get
+            {
+                return (string)ParseUser.CurrentUser["telephone"];
+            }
+        }
+
         private async void ExecuteRemoveCommand()
         {
             try
@@ -154,6 +170,18 @@
             this.UserAdvertisements = ads.AsQueryable()
                 .Where(a => this.CheckAvailableAds(a))
                 .Select(AddViewModel.FromModel);
+
+            var users = await new ParseQuery<ParseUser>().FindAsync();
+
+            foreach (var ad in this.UserAdvertisements)
+            {
+                if (ad.Worker != null)
+                {
+                    ad.Worker = users.AsQueryable()
+                    .Where(u => u.ObjectId == ad.Worker.ObjectId)
+                    .FirstOrDefault();
+                }
+            }
 
             this.Count = this.UserAdvertisements.Count();
             this.IsLoading = false;

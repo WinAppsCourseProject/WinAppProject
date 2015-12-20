@@ -5,7 +5,7 @@ Place the LogoutButton in a Header/Footer view or something, so that we can reus
 
 ---PAGES---
 - DONE - add DeatailsPage which will be navigated to via SelectionChanged Event in the MainPage. Will have an option AcceptJob in it;
-- add MyAdsPage where the ads by the current user will be listed in a list box(not active to) and when long press/hold on one of them we have the option to delete it and if possible to contact the worker user via his property Telephone.
+- DONE - without the contacts part - add MyAdsPage where the ads by the current user will be listed in a list box(not active to) and when long press/hold on one of them we have the option to delete it and if possible to contact the worker user via his property Telephone.
 
 ---GESTURES---
 - DONE - without the contacts part - implement hold gesture on MyAds page to get a context menu to delete the ap(render it inative by setting the prop to 0). If possible maybe have an option there to contact the worker user through the Contacts? - ask Doncho if possible! These buttons will not be vissible, until the gesture is applied - how to do it? - possibly leave it for later.
