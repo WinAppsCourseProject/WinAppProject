@@ -12,7 +12,9 @@ namespace LiveAdd.Views
 
         public event EventHandler CreateNewAdv;
 
-        public event EventHandler GoHomePage;
+        public event EventHandler GoToHomePage;
+
+        public event EventHandler GoToMyAddv;
         public MenuPanelView()
         {
             this.InitializeComponent();
@@ -36,9 +38,17 @@ namespace LiveAdd.Views
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
-            if (this.GoHomePage != null)
+            if (this.GoToHomePage != null)
             {
-                this.GoHomePage(this, null);
+                this.GoToHomePage(this, null);
+            }
+        }
+
+        private void ViewMyAddv_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.GoToMyAddv != null)
+            {
+                this.GoToMyAddv(this, null);
             }
         }
     }

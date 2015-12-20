@@ -130,7 +130,8 @@
                 <SplitView.Pane>
                     <views:MenuPanelView
                                 FontSize="18"
-                                GoHomePage="MenuPanelView_GoHomePage"
+                                GoToHomePage="MenuPanelView_GoHomePage"
+                                GoToMyAddv="MenuPanelView_GoToMyAddv"
                                 LogOut="MenuPanelView_LogOut"/>
                 </SplitView.Pane>
             </SplitView>

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LiveAdd.Pages"
     xmlns:helpers="using:LiveAdd.Helpers"
+    xmlns:views="using:LiveAdd.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -47,24 +48,52 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListView ItemTemplate="{StaticResource UserAdsTemplate}"
+        <Grid x:Name="panelTitle"
+              Grid.Row="0"
+              Style="{StaticResource BackgroundHeadersFootersColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnMenuPanel" 
+                    Grid.Column="0"
+                    Content="&#xE8C4;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Width="50"
+                    Height="50"
+                    Foreground ="White"
+                    Background="Transparent"
+                    Click="btnMenuPanel_Click"/>
+            <TextBlock Text="{Binding Title}"
+                       Grid.Column="1"
+                       Style="{StaticResource TytleStyle}"
+                       TextAlignment="Center"/>
+        </Grid>
+        <Grid Style="{StaticResource BackgroudContentColor }"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <ListView ItemTemplate="{StaticResource UserAdsTemplate}"
                   ItemsSource="{Binding UserAdvertisements}"
                   x:Name="userAdsListView"
                   Grid.Row="0"
                   Holding="ListView_Holding">
-        </ListView>
-        <ProgressRing  Grid.Row="0"
+            </ListView>
+            <ProgressRing  Grid.Row="0"
                         HorizontalAlignment="Center"
                          VerticalAlignment="Center"
                           Height="70"
                           Width="70"
                          IsActive="{Binding IsLoading, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="1"
+            <Button Grid.Row="1"
                 x:Name="removeButton"
                 Content="Remove Ad"
                 HorizontalAlignment="Center"
@@ -73,7 +102,19 @@
                                      Mode=TwoWay,
                                      UpdateSourceTrigger=PropertyChanged, 
                                      Converter={StaticResource boolToVisibilityConverter}}"/>
-
-
+        </Grid>
+        <SplitView x:Name="MenuPanel"
+                     DisplayMode="Overlay" 
+                     IsPaneOpen="False"
+                     CompactPaneLength="0"
+                     OpenPaneLength="150"
+                         VerticalAlignment="Stretch">
+            <SplitView.Pane>
+                <views:MenuPanelView
+                                FontSize="18"
+                                GoToHomePage="MenuPanelView_GoHomePage"
+                                LogOut="MenuPanelView_LogOut"/>
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
 </Page>

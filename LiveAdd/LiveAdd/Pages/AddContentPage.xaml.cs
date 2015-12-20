@@ -53,5 +53,10 @@ namespace LiveAdd.Pages
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private void MenuPanelView_GoToMyAddv(object sender, EventArgs e)
+        {
+            this.Frame.Navigate(typeof(UserAdsPage));
+        }
     }
 }
