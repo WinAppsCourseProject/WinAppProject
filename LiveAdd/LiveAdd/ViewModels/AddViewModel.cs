@@ -1,0 +1,101 @@
+﻿namespace LiveAdd.ViewModels
+{
+    using Helpers;
+    using Models;
+    using Parse;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Windows.Input;
+
+    public class AddViewModel : ViewModelBase
+    {
+        private ICommand acceptJobCommand;
+
+        public static Expression<Func<AddModel, AddViewModel>> FromModel
+        {
+            get
+            {
+                return model => new AddViewModel()
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    Price = model.Price,
+                    Creator = model.Creator,
+                    Worker = model.Worker,
+                    ImgUrl = model.Image == null ? "http://www.designofsignage.com/application/symbol/building/image/600x600/no-photo.jpg" : model.Image.Url.AbsoluteUri,
+                    Address = model.Address
+                };
+            }
+        }
+
+        public ICommand AcceptJobCommand
+        {
+            get
+            {
+                if (this.acceptJobCommand == null)
+                {
+                    this.acceptJobCommand = new DelegateCommand(this.ExecuteAcceptJobCommand);
+                }
+
+                return this.acceptJobCommand;
+            }
+        }
+
+        private async void ExecuteAcceptJobCommand()
+        {
+            if (this.Worker != null)
+            {
+                Notifier.ShowNotification("This ad already has a worker. Try another one :)");
+            }
+            else
+            {
+                try
+                {
+                    var ads = await new ParseQuery<AddModel>().FindAsync();
+
+                    var adModel = ads.AsQueryable()
+                                     .Where(a => a.Name == this.Name && a.Description == this.Description)
+                                     .FirstOrDefault();
+
+                    ParseUser creator = (await new ParseQuery<ParseUser>().FindAsync())
+                                                                          .AsQueryable()
+                                                                          .Where(u => u.ObjectId == adModel.Creator.ObjectId)
+                                                                          .FirstOrDefault();
+
+                    if (ParseUser.CurrentUser.Email == creator.Email)
+                    {
+                        throw new InvalidOperationException("You cannot accept your own ad. If you want to delete it - go to My Ads page");
+                    }
+
+                    adModel.Worker = ParseUser.CurrentUser;
+
+                    await adModel.SaveAsync();
+                    
+                    this.Worker = adModel.Worker;
+
+                    Notifier.ShowNotification("You successfully accepted this ad.");
+                }
+                catch (Exception e)
+                {
+                    Notifier.ShowNotification(e.Message);
+                }
+            }
+        }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public string ImgUrl { get; set; }
+
+        public double Price { get; set; }
+
+        public string Address { get; set; }
+
+        public ParseUser Creator { get; set; }
+
+        public ParseUser Worker { get; set; }
+    }
+}
