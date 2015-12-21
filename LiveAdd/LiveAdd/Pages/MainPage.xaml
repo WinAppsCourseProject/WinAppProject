@@ -83,6 +83,10 @@
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
+            <Button Content="Show all"
+                    Grid.Column="1"
+                    Margin="25, 0, 0, 0"
+                    Command="{Binding ShowAllCommand}" />
             <Button x:Name="SearchButton"
                     Grid.Column="2"
                     Height="50"
@@ -105,7 +109,10 @@
                            OpenPaneLength="250">
                     <SplitView.Pane>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Height="50"
+                            <Button Content="Go"
+                                    Command="{Binding SearchCommand}"/>
+                            <TextBox Text="{Binding SearchParams, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     Height="50"
                                      Width="250"/>
                         </StackPanel>
                     </SplitView.Pane>
@@ -115,7 +122,7 @@
         <Grid x:Name="panelContent"
               Grid.Row="1"
               Style="{StaticResource BackgroudContentColor}">
-            <ListBox ItemsSource="{Binding Advertisements}"
+            <ListBox ItemsSource="{Binding SearchResults}"
                      ItemTemplate="{StaticResource AdvertisementItemTemplate}"
                      SelectionMode="Single"
                      SelectionChanged="OnListBoxSelectionChanged">

@@ -9,6 +9,7 @@
     using Models;
     using Parse;
     using Windows.Devices.Geolocation;
+    using System.Windows.Input;
 
     public class MainPageViewModel : ViewModelBase
     {
@@ -19,9 +20,13 @@
         private double latitude;
         private double longitude;
 
+        private ObservableCollection<AddViewModel> searchResults;
         private ObservableCollection<AddViewModel> advertisements;
         private bool isLoading;
         private int count;
+        private ICommand searchCommand;
+        private string searchParams;
+        private ICommand showAllCommand;
 
         public MainPageViewModel()
         {
@@ -37,6 +42,41 @@
                 RaisePropertyChanged("IsLoading");
             }
         }
+        public ICommand ShowAllCommand
+        {
+            get
+            {
+                if (this.showAllCommand == null)
+                {
+                    this.showAllCommand = new DelegateCommand(this.ExecuteShowAllCommand);
+                }
+
+                return this.showAllCommand;
+            }
+        }
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                if (this.searchCommand == null)
+                {
+                    this.searchCommand = new DelegateCommand(this.ExecuteSearchCommand);
+                }
+
+                return this.searchCommand;
+            }
+        }
+
+        public string SearchParams
+        {
+            get { return this.searchParams; }
+            set
+            {
+                this.searchParams = value;
+                RaisePropertyChanged("SearchParams");
+            }
+        }
 
         public int Count
         {
@@ -48,6 +88,27 @@
             {
                 this.count = value;
                 RaisePropertyChanged("Count");
+            }
+        }
+
+        public IEnumerable<AddViewModel> SearchResults
+        {
+            get
+            {
+                if (this.searchResults == null)
+                {
+                    this.searchResults = new ObservableCollection<AddViewModel>();
+                }
+                return this.searchResults;
+            }
+            set
+            {
+                if (this.searchResults == null)
+                {
+                    this.searchResults = new ObservableCollection<AddViewModel>();
+                }
+                this.searchResults.Clear();
+                value.ForEach(this.searchResults.Add);
             }
         }
 
@@ -85,6 +146,27 @@
             ParseUser.LogOut();
         }
 
+        private void ExecuteShowAllCommand()
+        {
+            this.SearchResults = this.Advertisements.ToList();
+            this.Count = this.SearchResults.Count();
+        }
+
+        private void ExecuteSearchCommand()
+        {
+            if (string.IsNullOrEmpty(this.SearchParams))
+            {
+                return;
+            }
+            else
+            {
+                this.SearchResults = this.Advertisements.Where(a => a.Name.ToLower().IndexOf(this.SearchParams.ToLower()) != -1
+                                                                     || a.Description.ToLower().IndexOf(this.SearchParams.ToLower()) != -1)
+                                                         .ToList();
+                this.Count = this.SearchResults.Count();
+            }
+        }
+
         private async void LoadAddsAsync()
         {
             this.IsLoading = true;
@@ -116,7 +198,9 @@
                     .FirstOrDefault();
             }
 
-            this.Count = this.Advertisements.Count();
+            this.SearchResults = this.Advertisements.ToList();
+
+            this.Count = this.SearchResults.Count();
             this.IsLoading = false;
         }
 
