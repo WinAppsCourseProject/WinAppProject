@@ -53,7 +53,6 @@
                                          IsStaggeringEnabled="True"/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="1*" />
@@ -83,10 +82,7 @@
                        Grid.Column="1"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Center"/>
-            <Button Content="Show all"
-                    Grid.Column="1"
-                    Margin="25, 0, 0, 0"
-                    Command="{Binding ShowAllCommand}" />
+
             <Button x:Name="SearchButton"
                     Grid.Column="2"
                     Height="50"
@@ -109,14 +105,17 @@
                            OpenPaneLength="250">
                     <SplitView.Pane>
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Go"
-                                    Command="{Binding SearchCommand}"/>
+                            <Button Content="&#xE71C;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    Command="{Binding SearchCommand}" 
+                                    Height="50"
+                                    Style="{StaticResource HeaderAndFooterButtonsColor}"/>
                             <TextBox Text="{Binding SearchParams, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      Height="50"
                                      Width="250"/>
                         </StackPanel>
                     </SplitView.Pane>
-            </SplitView>
+                </SplitView>
             </Grid>
         </Grid>
         <Grid x:Name="panelContent"
@@ -155,7 +154,7 @@
                Grid.Row="2"
                Style="{StaticResource BackgroundHeadersFootersColor}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="110" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="70" />
                 <ColumnDefinition Width="40" />
@@ -164,6 +163,10 @@
                        Grid.Column="0"
                        Style="{StaticResource TytleStyle}"
                        TextAlignment="Left"/>
+            <Button Content="Show all"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ShowAllCommand}" />
             <TextBlock Text="Found: "
                        Grid.Column="2"
                        Style="{StaticResource TytleStyle}"
