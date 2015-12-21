@@ -2,6 +2,7 @@
 using Parse;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -62,13 +63,18 @@ namespace LiveAdd.Pages
             this.Frame.Navigate(typeof(UserAdsPage));
         }
 
-        private void panelTitle_ManipulationCompleted(object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
+        private void OnPanelTitleManipulationCompleted(object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
         {
             var velocities = e.Velocities;
             if (velocities.Linear.X > 0)
             {
                 this.MenuPanel.IsPaneOpen = !this.MenuPanel.IsPaneOpen;
             }
+        }
+
+        private void OnAddImageDoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ShowImagePage), this.adImage.Source);
         }
     }
 }

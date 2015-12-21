@@ -16,7 +16,7 @@
               Grid.Row="0"
               Style="{StaticResource BackgroundHeadersFootersColor}"
               ManipulationMode="TranslateX"
-              ManipulationCompleted="panelTitle_ManipulationCompleted">
+              ManipulationCompleted="OnPanelTitleManipulationCompleted">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="1*" />
@@ -56,13 +56,15 @@
                     <ColumnDefinition Width="0.64*"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding ImgUrl}"
+                       x:Name="adImage"
                        Grid.Row="0"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"
                        Height="250"
                        Width="250"
                        HorizontalAlignment="Left"
-                       VerticalAlignment="Center" />
+                       VerticalAlignment="Center"
+                       DoubleTapped="OnAddImageDoubleTapped"/>
                 <TextBlock Text="{Binding Name}"
                            Grid.Row="1"
                            Grid.Column="0"
