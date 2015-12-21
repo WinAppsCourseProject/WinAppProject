@@ -1,14 +1,12 @@
 ﻿namespace LiveAdd.ViewModels
 {
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Windows.Input;
     using Helpers;
     using Models;
     using Parse;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Threading.Tasks;
-    using System.Windows.Input;
 
     public class AddViewModel : ViewModelBase
     {
@@ -31,7 +29,7 @@
                     Price = model.Price,
                     Creator = model.Creator,
                     Worker = model.Worker,
-                    ImgUrl = model.Image == null ? "http://www.designofsignage.com/application/symbol/building/image/600x600/no-photo.jpg" : model.Image.Url.AbsoluteUri,
+                    ImgUrl = model.Image == null ? "http://www.stvhsaz.com/images/img3.jpg" : model.Image.Url.AbsoluteUri,
                     Address = model.Address
                 };
             }
@@ -139,7 +137,7 @@
                 {
                     return string.Empty;
                 }
-                
+
                 return (string)this.Worker["telephone"];
             }
         }
